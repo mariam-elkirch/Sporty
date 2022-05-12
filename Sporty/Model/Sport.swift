@@ -16,3 +16,4 @@ class Sport: Codable {
         case strSportThumb = "strSportThumb"
     }
 }
+
