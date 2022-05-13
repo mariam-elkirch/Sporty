@@ -5,7 +5,6 @@
 //  Created by  Hager Magdy on 5/13/22.
 //  Copyright © 2022 iti. All rights reserved.
 //
-
 import Foundation
     class LeaguePresenter {
     //var NWService : MovieService! // service
@@ -14,7 +13,7 @@ import Foundation
         init(NWService : NetworkServiceProtocol){
            }
     func attachView(view: LeagueProtocol){
-        self.view = view
+        self.view = view 
     }
     func getItems(){
         NetworkServic.legsResult(strSport: ""){[weak self] (result) in
