@@ -31,7 +31,7 @@ class NetworkServic : NetworkServiceProtocol {
             }}
     }
     
-    static func legsResult(strSport : String , complitionHandler : @escaping (SportsModel?) -> Void){
+    static func legsResult(strSport : String , complitionHandler : @escaping (LeagueModel?) -> Void){
    var strSport = "Soccer"
                  Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/search_all_leagues.php?s=\(strSport)")
                      .response{(responseData) in

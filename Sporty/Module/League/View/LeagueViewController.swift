@@ -8,23 +8,52 @@
 
 import UIKit
 
-class LeagueViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("League view controller")
-        // Do any additional setup after loading the view.
+  protocol LeagueProtocol : AnyObject{
+        func stopAnimating()
+        func renderCollectionView()
     }
-    
+   class LeagueViewController: UIViewController {
+         var appdelegate:AppDelegate?
+        let indicator = UIActivityIndicatorView(style: .large)
+           var presenter : LeaguePresenter!
+           // Modle for View
+           var resultView: [String]!
+        override func viewDidLoad() {
 
-    /*
-    // MARK: - Navigation
+            super.viewDidLoad()
+            print("view did")
+                  indicator.center = self.view.center
+                        self.view.addSubview(indicator)
+                        indicator.startAnimating()
+                        
+                        presenter = LeaguePresenter(NWService: NetworkServic())
+                        presenter.attachView(view: self)
+                        
+                        presenter.getItems()
+                      //  self.table.delegate=self
+                          //  self.table.dataSource=self
+            // Do any additional setup after loading the view.
+        }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
     }
-    */
 
-}
+    extension LeagueViewController : LeagueProtocol {
+        func stopAnimating() {
+            indicator.stopAnimating()
+            // I have the result
+            //presenter.result
+        }
+        func renderCollectionView(){
+            resultView = presenter.result.map({ (item) -> String in
+                print("kak")
+                print(item.idLeague)
+            
+                return item.idLeague ?? ""
+            })
+            //self.tableView.reloadData()
+        }
+    }
+
+

@@ -13,7 +13,6 @@ import Foundation
        var result : [Sport]! // model
        weak var view : HomeProtocol!  // DI
         init(NWService : NetworkServiceProtocol){
-            
            }
     func attachView(view: HomeProtocol){
         self.view = view
