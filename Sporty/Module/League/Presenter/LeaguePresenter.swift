@@ -19,6 +19,7 @@ import Foundation
         NetworkServic.legsResult(strSport: ""){[weak self] (result) in
             
             print(" League presenter")
+            
             print(result?.countries[2].idLeague ?? "")
             self?.result = result?.countries
             //self.tableView.reloadData()
