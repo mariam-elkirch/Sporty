@@ -13,10 +13,11 @@ import Foundation
         init(NWService : NetworkServiceProtocol){
            }
     func attachView(view: LeagueProtocol){
-        self.view = view 
+        self.view = view
     }
     func getItems(){
         NetworkServic.legsResult(strSport: ""){[weak self] (result) in
+            
             print(" League presenter")
             print(result?.countries[2].idLeague ?? "")
             self?.result = result?.countries
