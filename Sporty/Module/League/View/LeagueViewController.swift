@@ -23,6 +23,7 @@ import UIKit
 
             super.viewDidLoad()
             print("view did")
+            
                   indicator.center = self.view.center
                         self.view.addSubview(indicator)
                         indicator.startAnimating()

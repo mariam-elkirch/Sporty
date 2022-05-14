@@ -23,6 +23,7 @@ import Foundation
             print(result?.countries[2].idLeague ?? "")
             self?.result = result?.countries
             //self.tableView.reloadData()
+            
             DispatchQueue.main.async {
                 self?.view.stopAnimating()
                 self?.view.renderCollectionView()
