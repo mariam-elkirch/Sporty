@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0806BC282ED46F0081C5FC /* MyCustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0806BB282ED46F0081C5FC /* MyCustomCellTableViewCell.swift */; };
 		0CBA3DC3282E89FC0095B953 /* LeaguePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA3DC2282E89FC0095B953 /* LeaguePresenter.swift */; };
 		0CBA3DC5282E8A210095B953 /* LeagueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA3DC4282E8A210095B953 /* LeagueViewController.swift */; };
 		0CDE96F5282DCED600F24F34 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE96F4282DCED600F24F34 /* League.swift */; };
@@ -14,6 +15,7 @@
 		AC0BC2F6282D75E10068C875 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0BC2F5282D75E10068C875 /* Sport.swift */; };
 		AC0BC2F8282D75F20068C875 /* SportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0BC2F7282D75F20068C875 /* SportModel.swift */; };
 		AC0BC2FA282D78ED0068C875 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0BC2F9282D78ED0068C875 /* Service.swift */; };
+		AC1DB43C2830665C0077B855 /* flower1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC1DB43B2830665C0077B855 /* flower1.jpg */; };
 		AC7654A5282BFD1400486A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7654A4282BFD1400486A5A /* AppDelegate.swift */; };
 		AC7654A7282BFD1400486A5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7654A6282BFD1400486A5A /* SceneDelegate.swift */; };
 		AC7654A9282BFD1400486A5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7654A8282BFD1400486A5A /* ViewController.swift */; };
@@ -27,7 +29,6 @@
 		AC7654DC282BFE4B00486A5A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AC7654DB282BFE4B00486A5A /* Kingfisher */; };
 		ACB29E96282E79230029EE9E /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB29E95282E79230029EE9E /* HomePresenter.swift */; };
 		ACB29E98282EA2530029EE9E /* SportCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB29E97282EA2530029EE9E /* SportCollectionViewCell.swift */; };
-		ACB29E9A282EAEC50029EE9E /* flower1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACB29E99282EAEC50029EE9E /* flower1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C0806BB282ED46F0081C5FC /* MyCustomCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCellTableViewCell.swift; sourceTree = "<group>"; };
 		0CBA3DC2282E89FC0095B953 /* LeaguePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguePresenter.swift; sourceTree = "<group>"; };
 		0CBA3DC4282E8A210095B953 /* LeagueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueViewController.swift; sourceTree = "<group>"; };
 		0CDE96F4282DCED600F24F34 /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 		AC0BC2F5282D75E10068C875 /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
 		AC0BC2F7282D75F20068C875 /* SportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportModel.swift; sourceTree = "<group>"; };
 		AC0BC2F9282D78ED0068C875 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		AC1DB43B2830665C0077B855 /* flower1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower1.jpg; path = ../../../../Desktop/flower1.jpg; sourceTree = "<group>"; };
 		AC7654A1282BFD1400486A5A /* Sporty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sporty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7654A4282BFD1400486A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC7654A6282BFD1400486A5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,7 +75,6 @@
 		AC7654CB282BFD1600486A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACB29E95282E79230029EE9E /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		ACB29E97282EA2530029EE9E /* SportCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportCollectionViewCell.swift; sourceTree = "<group>"; };
-		ACB29E99282EAEC50029EE9E /* flower1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower1.jpg; path = ../../../../Desktop/flower1.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				0CBA3DC4282E8A210095B953 /* LeagueViewController.swift */,
+				0C0806BB282ED46F0081C5FC /* MyCustomCellTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,8 +196,8 @@
 				AC0BC2F1282D753E0068C875 /* Module */,
 				AC7654A4282BFD1400486A5A /* AppDelegate.swift */,
 				AC7654A6282BFD1400486A5A /* SceneDelegate.swift */,
+				AC1DB43B2830665C0077B855 /* flower1.jpg */,
 				AC7654B0282BFD1600486A5A /* Assets.xcassets */,
-				ACB29E99282EAEC50029EE9E /* flower1.jpg */,
 				AC7654B5282BFD1600486A5A /* Info.plist */,
 				AC7654AD282BFD1400486A5A /* Sporty.xcdatamodeld */,
 			);
@@ -359,7 +362,7 @@
 			files = (
 				AC7654B4282BFD1600486A5A /* LaunchScreen.storyboard in Resources */,
 				AC7654B1282BFD1600486A5A /* Assets.xcassets in Resources */,
-				ACB29E9A282EAEC50029EE9E /* flower1.jpg in Resources */,
+				AC1DB43C2830665C0077B855 /* flower1.jpg in Resources */,
 				AC7654AC282BFD1400486A5A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +400,7 @@
 				0CBA3DC3282E89FC0095B953 /* LeaguePresenter.swift in Sources */,
 				AC7654A9282BFD1400486A5A /* ViewController.swift in Sources */,
 				AC7654A5282BFD1400486A5A /* AppDelegate.swift in Sources */,
+				0C0806BC282ED46F0081C5FC /* MyCustomCellTableViewCell.swift in Sources */,
 				AC7654A7282BFD1400486A5A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,27 +7,36 @@
 //
 
 import UIKit
-
-
+import Kingfisher
   protocol LeagueProtocol : AnyObject{
         func stopAnimating()
-        func renderCollectionView()
+        func renderTableView()
     }
-   class LeagueViewController: UIViewController {
+   class LeagueViewController: UIViewController
+   ,UITableViewDelegate,UITableViewDataSource {
+    var urlSelected : String?
+    var sport : String?
+    var legueSelect:Array<League>=[]
          var appdelegate:AppDelegate?
         let indicator = UIActivityIndicatorView(style: .large)
            var presenter : LeaguePresenter!
            // Modle for View
-           var resultView: [String]!
+    @IBOutlet weak var table: UITableView!
+    var resultView: [String]!
         override func viewDidLoad() {
-
             super.viewDidLoad()
             print("view did")
+
             
                   indicator.center = self.view.center
                         self.view.addSubview(indicator)
                         indicator.startAnimating()
                         
+
+            indicator.center = self.view.center
+            self.view.addSubview(indicator)
+            indicator.startAnimating()
+
                         presenter = LeaguePresenter(NWService: NetworkServic())
                         presenter.attachView(view: self)
                         

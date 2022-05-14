@@ -13,4 +13,5 @@ class League: Codable {
     let strLeague: String
     let strSport: String
     let strYoutube : String
+    let strBadge : String
 }

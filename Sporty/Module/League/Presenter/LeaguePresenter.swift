@@ -15,18 +15,20 @@ import Foundation
     func attachView(view: LeagueProtocol){
         self.view = view
     }
-    func getItems(){
-        NetworkServic.legsResult(strSport: ""){[weak self] (result) in
-            
+        func getItems(sportName : String){
+            NetworkServic.legsResult(strSport: sportName){[weak self] (result) in
+            print(sportName ,"nameofsportpresenter")
             print(" League presenter")
             
             print(result?.countries[2].idLeague ?? "")
             self?.result = result?.countries
+
             //self.tableView.reloadData()
             
+
             DispatchQueue.main.async {
                 self?.view.stopAnimating()
-                self?.view.renderCollectionView()
+                self?.view.renderTableView()
                 //self.label?.text = result.items[0].header ?? ""
             }
         }
