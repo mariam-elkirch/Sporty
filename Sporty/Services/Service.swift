@@ -32,18 +32,21 @@ class NetworkServic : NetworkServiceProtocol {
     }
     
     static func legsResult(strSport : String , complitionHandler : @escaping (LeagueModel?) -> Void){
-   var strSport = "Soccer"
+        
+   //var strSport = "Soccer"
                  Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/search_all_leagues.php?s=\(strSport)")
                      .response{(responseData) in
     guard let data = responseData.data else {
                         return}
             do {
         let countries = try JSONDecoder().decode(LeagueModel.self, from: data)
-            
-    print(countries.countries[2].strLeague ?? "noData"  , "")
+            complitionHandler(countries)
+
+    print(countries.countries[2].strLeague ?? "noData"  , "hh")
             }catch {
             print(error)
-                        
+            complitionHandler(nil)
+
             }}
     
     
