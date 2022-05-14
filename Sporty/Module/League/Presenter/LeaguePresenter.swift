@@ -16,7 +16,7 @@ import Foundation
         self.view = view
     }
         func getItems(sportName : String){
-        NetworkServic.legsResult(strSport: ""){[weak self] (result) in
+            NetworkServic.legsResult(strSport: sportName){[weak self] (result) in
             print(sportName ,"nameofsportpresenter")
             print(" League presenter")
             

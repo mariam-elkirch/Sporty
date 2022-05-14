@@ -31,8 +31,8 @@ import Kingfisher
             indicator.startAnimating()
                         presenter = LeaguePresenter(NWService: NetworkServic())
                         presenter.attachView(view: self)
-                        
-            presenter.getItems(sportName: sport!)
+                        presenter.getItems(sportName: sport!)
+
                 self.table.delegate=self
             self.table.dataSource=self
             // Do any additional setup after loading the view.
@@ -62,9 +62,9 @@ import Kingfisher
 
     cell.imageView?.kf.setImage(with: res, placeholder: UIImage(named: "nemo.jpg"))
             
-            cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.size.width)!/2
-            cell.imageView?.layer.masksToBounds = true
-    
+          cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.size.width)!/2
+          cell.imageView?.layer.masksToBounds = true
+            cell.imageView?.layer.borderWidth = 2
             cell.myBtn.tag = indexPath.row
             cell.myBtn.addTarget(self, action: #selector(openYoutube(sender: )), for: .touchUpInside)
             urlSelected = legueSelect[indexPath.row].strYoutube
@@ -102,6 +102,7 @@ import Kingfisher
         }
         func renderTableView(){
             resultView = presenter.result.map({ (item) -> String in
+            presenter.getItems(sportName: sport ?? "Soceer")
                 print(item.idLeague , "presenter done")
                 self.legueSelect.append(item)
                 return item.idLeague ?? ""
