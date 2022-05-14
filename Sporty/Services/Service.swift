@@ -48,10 +48,29 @@ class NetworkServic : NetworkServiceProtocol {
             complitionHandler(nil)
 
             }}
-    
-    
-    
 }
+     static func teamResult(strLeague : String ,complitionHandler : @escaping (TeamModel?) -> Void){
+            
+       
+                     Alamofire.request(" https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=BTCC")
+                      //  \(strLeague)")
+                         .response{(responseData) in
+        guard let data = responseData.data else {
+                            return}
+                do {
+            let countries = try JSONDecoder().decode(TeamModel.self, from: data)
+                complitionHandler(countries)
+
+                    print(countries.teams?[0].strTeamBadge ?? "noData"  , "hh")
+                }catch {
+                print(error)
+                complitionHandler(nil)
+
+                }}
+    }
+    
+    
+//    https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=English%20Premier%20League
     
      static func youtubeResult(url : String , complitionHandler : @escaping (YouTubeModel?) -> Void){
             
@@ -68,7 +87,6 @@ class NetworkServic : NetworkServiceProtocol {
                 complitionHandler(nil)
 
                 }}
-        
         
         
     }

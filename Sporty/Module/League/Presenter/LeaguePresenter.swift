@@ -8,6 +8,8 @@
 import Foundation
     class LeaguePresenter {
        var result : [League]! // model
+        var result2 : [Team]! // model
+
       internal  var re = [LeagueTwo]()
         
         var youResult : String?
@@ -30,7 +32,29 @@ import Foundation
                 //self.label?.text = result.items[0].header ?? ""
             }
         }
-        }
+        }//BTCC
+         func getTeams(teamName : String){
+                   NetworkServic.teamResult(strLeague: teamName){[weak self] (result) in
+                   print(teamName ,"nameofsportpresenter")
+                   print(" team presenter")
+                   
+                    print(result?.teams![0].strTeamBadge ?? "noooodata", "teamssspresenterr")
+                    self?.result2 = result?.teams
+                    DispatchQueue.main.async {
+                                  self?.view.stopAnimating()
+                                //  self?.view.renderTableView()
+                                  //self.label?.text = result.items[0].header ?? ""
+                              }
+                
+               }
+               }
+        
+        
+        
+        
+        
+        
+        
             func getYoutube(){
                    var googleAPI = "https://youtube.googleapis.com/youtube/v3/channels?part=brandingSettings&id="
             var youtubeAPI = "&key=AIzaSyAhbFg1NXjD8gcHwO7o83nVz81pH4HwCAY"

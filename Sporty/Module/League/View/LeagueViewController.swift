@@ -29,9 +29,11 @@ import Kingfisher
             indicator.center = self.view.center
             self.view.addSubview(indicator)
             indicator.startAnimating()
-                        presenter = LeaguePresenter(NWService: NetworkServic())
-                        presenter.attachView(view: self)
-                        presenter.getItems(sportName: sport!)
+            presenter = LeaguePresenter(NWService: NetworkServic())
+            presenter.attachView(view: self)
+           // presenter.getItems(sportName: sport!)
+            presenter.getTeams(teamName: "BTCC")
+
           //  presenter.getYoutube()
 
                 self.table.delegate=self
@@ -108,6 +110,7 @@ import Kingfisher
         func renderTableView(){
             resultView = presenter.result.map({ (item) -> String in
             presenter.getItems(sportName: sport ?? "Soceer")
+             //   presenter.getTeams(teamName: "BTCC")
               //  presenter.getYoutube()
                 print(item.idLeague , "presenter done")
                 self.legueSelect.append(item)
