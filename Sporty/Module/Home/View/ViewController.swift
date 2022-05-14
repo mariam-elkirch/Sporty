@@ -107,7 +107,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
              let vc = segue.destination as! LeagueViewController //Cast with your DestinationController
              //Now simply set the title property of vc
             vc.sport = sportSelect[indexPath.row].strSport
-            print(sportSelect[indexPath.row].strSport ?? "ana aho")
+ 
          }
     }
 }

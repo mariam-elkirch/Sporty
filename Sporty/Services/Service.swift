@@ -52,4 +52,28 @@ class NetworkServic : NetworkServiceProtocol {
     
     
 }
+    
+     static func youtubeResult(url : String , complitionHandler : @escaping (YouTubeModel?) -> Void){
+            
+        Alamofire.request(url).response{(responseData) in
+        guard let data = responseData.data else {
+            return}
+                do {
+            let countries = try JSONDecoder().decode(YouTubeModel.self, from: data)
+                complitionHandler(countries)
+
+                    print(countries.items[3]?.brandingSettings  ?? "noData"  , "hh")
+                }catch {
+                print(error)
+                complitionHandler(nil)
+
+                }}
+        
+        
+        
+    }
+    
+    
+    
+    
 }

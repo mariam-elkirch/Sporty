@@ -8,10 +8,13 @@
 
 import Foundation
 
-class League: Codable {
+ class League: Codable {
     let idLeague : String
     let strLeague: String
     let strSport: String
-    let strYoutube : String
+  public  let strYoutube : String
     let strBadge : String
+}
+ class LeagueTwo : NSObject {
+    public var strYoutube : String? 
 }

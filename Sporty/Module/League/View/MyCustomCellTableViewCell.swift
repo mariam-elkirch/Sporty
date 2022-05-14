@@ -25,6 +25,7 @@ class MyCustomCellTableViewCell: UITableViewCell {
 //        myImage.layer.cornerRadius = myImage.bounds.height / 2
 //        myImage.clipsToBounds = true
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -7,8 +7,10 @@
 //
 import Foundation
     class LeaguePresenter {
-    //var NWService : MovieService! // service
        var result : [League]! // model
+      internal  var re = [LeagueTwo]()
+        
+        var youResult : String?
        weak var view : LeagueProtocol!  // DI
         init(NWService : NetworkServiceProtocol){
            }
@@ -28,5 +30,26 @@ import Foundation
                 //self.label?.text = result.items[0].header ?? ""
             }
         }
+        }
+            func getYoutube(){
+                   var googleAPI = "https://youtube.googleapis.com/youtube/v3/channels?part=brandingSettings&id="
+            var youtubeAPI = "&key=AIzaSyAhbFg1NXjD8gcHwO7o83nVz81pH4HwCAY"
+                print(result.count ,"counttt")
+                 for index in 0..<self.result.count{
+                  let youTubeURL = self.result[index].strYoutube
+                    if(youTubeURL != "" && (youTubeURL.contains("user") || youTubeURL.contains("channel"))){
+                                 var url: String!
+                    if(youTubeURL.contains("user")){
+                url = googleAPI + youTubeURL.split(separator: "/").last! + youtubeAPI
+                                }
+                               else if(youTubeURL.contains("channel")){
+                    url = googleAPI + youTubeURL.split(separator: "/").last! + youtubeAPI
+                                 }
+                       NetworkServic.youtubeResult(url: "https://youtube.googleapis.com/youtube/v3/channels?part=brandingSettings&id=UC3Guly6AbOr3PqrZMaV6vog&key=AIzaSyAhbFg1NXjD8gcHwO7o83nVz81pH4HwCAY"){[weak self] (resultTwo) in
+                        self?.re[0].strYoutube = resultTwo!.items[1]!.brandingSettings.channel.unsubscribedTrailer
+                        print(resultTwo!.items[0]?.brandingSettings.channel.unsubscribedTrailer , "youtubeeeee")
+        }
+        }
+        }
     }
-}
+    }

@@ -32,6 +32,7 @@ import Kingfisher
                         presenter = LeaguePresenter(NWService: NetworkServic())
                         presenter.attachView(view: self)
                         presenter.getItems(sportName: sport!)
+          //  presenter.getYoutube()
 
                 self.table.delegate=self
             self.table.dataSource=self
@@ -42,11 +43,10 @@ import Kingfisher
         return 100
         }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            var c: Int?
-                c = legueSelect.count
         //print(resultView.count ?? 5)
-            return c!
-          }
+            return  legueSelect.count
+        
+    }
           func numberOfSections(in tableView: UITableView) -> Int {
               return 1
           }
@@ -57,17 +57,23 @@ import Kingfisher
 
             cell.myLabel.text = legueSelect[indexPath.row].strLeague
             print(legueSelect[indexPath.row].strLeague , "haaaaggggg")
-    let url=URL(string:self.legueSelect[indexPath.row].strBadge)!
-            let res=ImageResource(downloadURL:url)
+    let url=URL(string:self.legueSelect[indexPath.row].strBadge ??
+            "https://www.thesportsdb.com//images//media//league//badge//6my1u31578828133.png" )
+            let res=ImageResource(downloadURL:url!)
 
     cell.imageView?.kf.setImage(with: res, placeholder: UIImage(named: "nemo.jpg"))
             
           cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.size.width)!/2
           cell.imageView?.layer.masksToBounds = true
             cell.imageView?.layer.borderWidth = 2
+            if (legueSelect[indexPath.row].strYoutube ==  ""){
+                cell.myBtn.isHidden = true
+            }
+            else {
             cell.myBtn.tag = indexPath.row
             cell.myBtn.addTarget(self, action: #selector(openYoutube(sender: )), for: .touchUpInside)
             urlSelected = legueSelect[indexPath.row].strYoutube
+            }
 //           urlSelected =  passLink(link: legueSelect[indexPath.row].strYoutube )
             return cell
         }
@@ -87,7 +93,6 @@ import Kingfisher
                            print("failed")
                            // showInvalidUrlAlert()
                        }
-            
             }
         }
         print("button")
@@ -103,6 +108,7 @@ import Kingfisher
         func renderTableView(){
             resultView = presenter.result.map({ (item) -> String in
             presenter.getItems(sportName: sport ?? "Soceer")
+              //  presenter.getYoutube()
                 print(item.idLeague , "presenter done")
                 self.legueSelect.append(item)
                 return item.idLeague ?? ""
