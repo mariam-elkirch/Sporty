@@ -79,6 +79,20 @@ import Kingfisher
 //           urlSelected =  passLink(link: legueSelect[indexPath.row].strYoutube )
             return cell
         }
+
+       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+            if let cell = sender as? UITableViewCell,
+               let indexPath = table.indexPath(for: cell) {
+
+                let vc = segue.destination as! DetailsCollectionViewController //Cast with your DestinationController
+                //Now simply set the title property of vc
+                vc.id = legueSelect[indexPath.row].idLeague
+                vc.str =  legueSelect[indexPath.row].strLeague
+                          //     vc.sport = legueSelect[indexPath.row].strLeague
+
+            }
+       }
 //    func passLink( link : String) -> String {
 //        return link
 //    }
@@ -118,6 +132,10 @@ import Kingfisher
             })
             self.table.reloadData()
         }
+        
+        
+        //DetailsCollectionViewController
+        
     }
 
 
