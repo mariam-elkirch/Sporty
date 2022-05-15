@@ -52,4 +52,25 @@ class NetworkServic : NetworkServiceProtocol {
     
     
 }
+    static func eventsResult(idLeague : String , complitionHandler : @escaping (Events?) -> Void){
+            
+       //var strSport = "Soccer"
+                     Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=\(idLeague)")
+                         .response{(responseData) in
+        guard let data = responseData.data else {
+                            return}
+                do {
+            let myevents = try JSONDecoder().decode(Events.self, from: data)
+                complitionHandler(myevents)
+
+                    print(myevents.events[1].idHomeTeam ?? " " , "Home Event")
+                }catch {
+                print(error)
+                complitionHandler(nil)
+
+                }}
+        
+        
+        
+    }
 }
