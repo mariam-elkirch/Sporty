@@ -50,11 +50,7 @@ import Foundation
                }
         
         
-        
-        
-        
-        
-        
+    
             func getYoutube(){
                    var googleAPI = "https://youtube.googleapis.com/youtube/v3/channels?part=brandingSettings&id="
             var youtubeAPI = "&key=AIzaSyAhbFg1NXjD8gcHwO7o83nVz81pH4HwCAY"

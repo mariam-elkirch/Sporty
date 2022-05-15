@@ -8,16 +8,11 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let details = "detailcell"
 
 class DetailsCollectionViewController: UICollectionViewController {
-    var id : String?
-    var str : String?
-    
-        @IBOutlet weak var myCollectionViewTeams: UICollectionView!
-    
-    
-    
+
+    @IBOutlet weak var mycoll: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,7 +20,7 @@ class DetailsCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: details)
 
         // Do any additional setup after loading the view.
     }
@@ -54,7 +49,7 @@ class DetailsCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: details, for: indexPath)
     
         // Configure the cell
     

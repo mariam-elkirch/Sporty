@@ -9,6 +9,7 @@
 import UIKit
 
 class MyCustomTeamCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var myImage: UIImageView!
     
+    @IBOutlet weak var myImage: UIImageView!
 }
+//detailcell

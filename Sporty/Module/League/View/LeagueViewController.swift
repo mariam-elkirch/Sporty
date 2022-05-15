@@ -83,12 +83,13 @@ import Kingfisher
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
             if let cell = sender as? UITableViewCell,
+                
                let indexPath = table.indexPath(for: cell) {
-
+//myCollectionViewTeams
                 let vc = segue.destination as! DetailsCollectionViewController //Cast with your DestinationController
                 //Now simply set the title property of vc
-                vc.id = legueSelect[indexPath.row].idLeague
-                vc.str =  legueSelect[indexPath.row].strLeague
+               // vc.id = legueSelect[indexPath.row].idLeague
+                //vc.str =  legueSelect[indexPath.row].strLeague
                           //     vc.sport = legueSelect[indexPath.row].strLeague
 
             }
