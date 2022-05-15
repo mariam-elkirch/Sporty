@@ -25,6 +25,8 @@ class DetailsLeaguePresenter {
                 print(result?.events[2].idLeague ?? "")
                 self?.result = result?.events
                 
+                
+                
             //self.tableView.reloadData()
             
 
