@@ -20,10 +20,9 @@ import Foundation
             NetworkServic.eventsResult(idLeague: myidLeag)
             {[weak self] (result) in
             print(myidLeag ,"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmpp")
-          
+            print(" League presenter")
             
-            //    print(result?.events[2].idLeague ?? "")
-                //completion 
+                print(result?.events[2].idEvent ?? "")
                 self?.resultev = result?.events
                 
                 
@@ -41,4 +40,3 @@ import Foundation
     }
     
 }
-

@@ -15,6 +15,8 @@ static func eventsResult(idLeague : String , complitionHandler : @escaping (Even
     
 
 class NetworkServic : NetworkServiceProtocol {
+   
+    
     static func sportResult(complitionHandler : @escaping (SportsModel?) -> Void){
         Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/all_sports.php")
         .response{(responseData) in
@@ -94,26 +96,22 @@ class NetworkServic : NetworkServiceProtocol {
     }
     
     static func eventsResult(idLeague : String , complitionHandler : @escaping (Events?) -> Void){
-            print("first Servicemmmmmmmmmmmmmmmmmmm")
-       //var strSport = "Soccer"
-                     Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4617")
-                         .response{(responseData) in
-                             print(responseData,"responceServicemmmmmmmmmmmmmmmmmmm")
-        guard let data = responseData.data else {
-             print("guard Servicemmmmmmmmmmmmmmmmmmm")
-                            return}
-                do {
-            let myevents = try JSONDecoder().decode(Events.self, from: data)
-                complitionHandler(myevents)
-
-                    print(myevents.events[1].idHomeTeam ?? " " , "Home Event")
-                }catch {
-                print(error)
-                complitionHandler(nil)
-
-                }}
         
-    
-    
+   //var strSport = "Soccer"
+                 Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4617")
+                     .response{(responseData) in
+    guard let data = responseData.data else {
+                        return}
+            do {
+        let countries = try JSONDecoder().decode(Events.self, from: data)
+            complitionHandler(countries)
+
+                print(countries.events[2].idEvent ?? "noData"  , "mmmmmmmmmmmmmmmmmmmmservice")
+            }catch {
+            print(error)
+            complitionHandler(nil)
+
+            }}
 }
 }
+

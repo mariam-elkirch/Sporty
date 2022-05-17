@@ -15,10 +15,8 @@ protocol DetailLeagueProtocol : AnyObject{
 }
 class DetailsCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, DetailLeagueProtocol {
    
-    
- //  var eventSelect:Array<Event>=[]
-   var presenter : DetailsLeaguePresenter!
-    var resultView: [String]!
+    var presenter : DetailsLeaguePresenter!
+    var resultView: [String]?
          // Modle for View
       
     
@@ -32,20 +30,16 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("first view did load mmmmmmmmmmm")
              presenter = DetailsLeaguePresenter(NWService: NetworkServic())
-         print("sec view did load mmmmmmmmmmm")
         presenter.attachView(view: self)
-         print("after attch view did load mmmmmmmmmmm")
+        
         mycollection.dataSource = self
                  mycollection.delegate = self
                      latesteventcollection.delegate=self
                      latesteventcollection.dataSource=self
                      upcommingcollection.delegate=self
                      upcommingcollection.dataSource = self
-       print("after source view did load mmmmmmmmmmm")
         presenter.getItems(myidLeag: "4328")
-         print("after get item did load mmmmmmmmmmm")
     }
     func stopAnimatingev() {
            
@@ -53,9 +47,9 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        
        func renderDetailCollectionViewev() {
         print("rendermmmmmmmmmmmmm")
-           resultView = presenter.resultev.map({ (myitem) -> String in
-               print(myitem.dateEvent, "hiiiiiiiiiiiiiiiiiiiiiiiiii")
-               return myitem.dateEvent ?? ""
+           resultView = presenter.resultev?.map({ (myitem) -> String in
+            print(myitem.idEvent, "hiiiiiiiiiiiiiiiiiiiiiiiiii")
+            return myitem.idEvent ?? ""
            })
        }
        

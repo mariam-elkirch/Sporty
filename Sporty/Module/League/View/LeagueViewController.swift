@@ -31,7 +31,7 @@ import Kingfisher
             indicator.startAnimating()
             presenter = LeaguePresenter(NWService: NetworkServic())
             presenter.attachView(view: self)
-            presenter.getItems(sportName: sport!)
+            presenter.getItems(sportName: sport ?? "Soccer")
             presenter.getTeams(teamName: "BTCC")
 
           //  presenter.getYoutube()

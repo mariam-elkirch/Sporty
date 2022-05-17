@@ -8,7 +8,7 @@
 
 import Foundation
 class Event: Codable {
-    var dateEvent: String
+   /* var dateEvent: String
     var dateEventLocal: String
     var idAPIfootball: String
     var idAwayTeam: String
@@ -24,6 +24,6 @@ class Event: Codable {
     var strFilename: String
     var strThumb: String
     var strTime: String
-    var intAwayScore: String
-   
+    var intAwayScore: String*/
+    var idEvent: String
 }
