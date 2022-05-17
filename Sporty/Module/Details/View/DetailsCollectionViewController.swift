@@ -77,6 +77,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         print(resultView[1].idEvent , "mmmmmmmmmmmmmmmmmmmmmmm")
         //mycollection.reloadData()
         ///////
+        
         resultViewTeam = presenterTeam?.resultT.map({(item) -> [String]? in
                    print("hag")
                   // print(item.strSport)
