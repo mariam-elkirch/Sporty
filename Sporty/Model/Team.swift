@@ -7,9 +7,6 @@
 //
 
 import Foundation
-class Team : Codable {
-    public var strTeamBadge: String?
-    enum CodingKeys: String, CodingKey {
-        case strTeamBadge = "strTeamBadge"
-    }
+ class Team : Codable {
+    let strTeamBadge : String
 }

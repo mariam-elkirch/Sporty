@@ -14,9 +14,14 @@ protocol DetailLeagueProtocol : AnyObject{
     func renderDetailCollectionViewev()
 }
 class DetailsCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, DetailLeagueProtocol {
-   
-    var presenter : DetailsLeaguePresenter!
+   var teamSelect:Array<Team>=[]
+    var presenter : DetailsLeaguePresenter?
+    var presenterTeam : TeamPresenter?
+
+    
     var resultView: [Event] = []
+    var resultViewTeam :[String] = []
+    
          // Modle for View
       
     
@@ -31,7 +36,10 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
              presenter = DetailsLeaguePresenter(NWService: NetworkServic())
-        presenter.attachView(view: self)
+        presenterTeam = TeamPresenter(NWService: NetworkServic())
+        presenter?.attachView(view: self)
+        presenterTeam?.attachView(view: self)
+
         print("presenterrrrrrrviewmmmmmmmmmmmmmmmmmmm")
         mycollection.dataSource = self
                  mycollection.delegate = self
@@ -40,8 +48,14 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                      upcommingcollection.delegate=self
                      upcommingcollection.dataSource = self
           print("after sourceviewmmmmmmmmmmmmmmmmmmm")
-        presenter.getItems(myidLeag: "4328")
+        presenter?.getItems(myidLeag: "4328")
           print("pget itemsrrrrrrrviewmmmmmmmmmmmmmmmmmmm")
+        
+        
+        /////////TEAM PRESENTER
+        
+        presenterTeam?.getItemsTeams(sportName: "tt")
+        print(presenterTeam?.getItemsTeams(sportName: ""), "noteam")
     }
     func stopAnimatingev() {
            
@@ -53,8 +67,40 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
             print(myitem.idEvent, "hiiiiiiiiiiiiiiiiiiiiiiiiii")
             return myitem.idEvent ?? ""
            })*/
-        self.resultView = presenter.resultev ?? []
-        print(resultView[1].idEvent , "mmmmmmmmmmmmmmmmmmmmmmmmmmghada")
+        
+        self.resultView = presenter?.resultev ?? []
+//        self.resultViewTeam = presenterTeam?.result ?? []
+//        var countTeam : Int?
+//        countTeam = presenterTeam?.result?.count
+//        print(resultViewTeam[1].strTeamBadge , "hagerrrrrrrrrrr")
+//        teamSelect.append(resultViewTeam[countTeam ?? 1 ])
+        print(resultView[1].idEvent , "mmmmmmmmmmmmmmmmmmmmmmm")
+        //mycollection.reloadData()
+        ///////
+        resultViewTeam = presenterTeam?.resultT.map({(item) -> [String]? in
+                   print("hag")
+                  // print(item.strSport)
+            print( item[1].strTeamBadge , "hagerrrrrrrrrrr")
+
+            self.teamSelect.append(contentsOf: item)
+                   presenterTeam?.getItemsTeams(sportName: "Soceer")
+                 //  print(sportSelect[1].strSport ?? "")
+                   return resultViewTeam
+        }) as! [String]
+               self.mycollection.reloadData()
+        
+//////
+     print("hag")
+//              //  self.teamSelect.append(item)
+//        presenterTeam?.getItemsTeams(sportName: "d")
+//
+//             //  print(sportSelect[1].strSport ?? "")
+//              // return item.strTeamBadge ?? ""
+        
+        
+        
+        
+        ///
       //  self.latestResultResponse = presenter.result ?? []
        // myCollectionView.reloadData()
       //  latestCollectionView.reloadData()
@@ -62,7 +108,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
            if (collectionView == mycollection){
-               return 3
+            return teamSelect.count
            }
            else if (collectionView == latesteventcollection){
             return 2
@@ -74,6 +120,15 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
            if (collectionView == self.mycollection){
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailcell", for: indexPath) as! MyCustomTeamCollectionViewCell
+            
+            let url=URL(string: teamSelect[indexPath.row].strTeamBadge ?? "https://pngimage.net/wp-content/uploads/2018/05/courses-png-6.png")
+                           
+            let res=ImageResource(downloadURL: url!)
+                   cell.myImage.kf.setImage(with: res, placeholder: UIImage(named: "flower1.jpg"))
+                // cell.myimg.kf.setImage(with: res)
+            //cell.s(with: images[indexPath.row])
+        
+            
               // cell.myImage =
                return cell
            }

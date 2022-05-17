@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C0806BA282ECC020081C5FC /* flower1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C0806B9282ECC020081C5FC /* flower1.jpg */; };
 		0C0806BC282ED46F0081C5FC /* MyCustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0806BB282ED46F0081C5FC /* MyCustomCellTableViewCell.swift */; };
+		0C22AEC328343DC000D1928A /* TeamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C22AEC228343DC000D1928A /* TeamPresenter.swift */; };
 		0C65EF8B2830090D006002CA /* YoutubeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65EF8A2830090D006002CA /* YoutubeModel.swift */; };
 		0C65EF8D28305EC2006002CA /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65EF8C28305EC2006002CA /* Team.swift */; };
 		0C65EF8F28305EDA006002CA /* TeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65EF8E28305EDA006002CA /* TeamModel.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		0C0806B9282ECC020081C5FC /* flower1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower1.jpg; path = ../../../../Desktop/flower1.jpg; sourceTree = "<group>"; };
 		0C0806BB282ED46F0081C5FC /* MyCustomCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCellTableViewCell.swift; sourceTree = "<group>"; };
+		0C22AEC228343DC000D1928A /* TeamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPresenter.swift; sourceTree = "<group>"; };
 		0C65EF8A2830090D006002CA /* YoutubeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeModel.swift; sourceTree = "<group>"; };
 		0C65EF8C28305EC2006002CA /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		0C65EF8E28305EDA006002CA /* TeamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamModel.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				0CCCDDA82831816300176331 /* DetailsPresenter.swift */,
+				0C22AEC228343DC000D1928A /* TeamPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				0C0806BC282ED46F0081C5FC /* MyCustomCellTableViewCell.swift in Sources */,
 				ACAB3F2A2832D3CF0057D643 /* Event.swift in Sources */,
 				AC7654A7282BFD1400486A5A /* SceneDelegate.swift in Sources */,
+				0C22AEC328343DC000D1928A /* TeamPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

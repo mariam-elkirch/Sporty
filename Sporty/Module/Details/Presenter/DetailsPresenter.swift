@@ -10,6 +10,9 @@ import Foundation
   class DetailsLeaguePresenter {
     //var NWService : MovieService! // service
        var resultev : [Event]? // model
+
+    
+    
        weak var view : DetailLeagueProtocol!  // DI
         init(NWService : NetworkServiceProtocol){
            }
@@ -40,5 +43,8 @@ import Foundation
         }
     
     }
+    
+    
+    
     
 }
