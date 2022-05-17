@@ -7,7 +7,7 @@
 //
 import Foundation
     class LeaguePresenter {
-       var result : [League]! // model
+       var result : [League]? // model
         var result2 : [Team]! // model
 
       internal  var re = [LeagueTwo]()
@@ -51,12 +51,13 @@ import Foundation
         
         
     
-            func getYoutube(){
+         /*   func getYoutube(){
                    var googleAPI = "https://youtube.googleapis.com/youtube/v3/channels?part=brandingSettings&id="
             var youtubeAPI = "&key=AIzaSyAhbFg1NXjD8gcHwO7o83nVz81pH4HwCAY"
-                print(result.count ,"counttt")
-                 for index in 0..<self.result.count{
-                  let youTubeURL = self.result[index].strYoutube
+                guard let res = result else { return  }
+                print(res.count ,"counttt")
+                 for index in 0..<self.result!.count{
+                    let youTubeURL = self.result![index].strYoutube
                     if(youTubeURL != "" && (youTubeURL.contains("user") || youTubeURL.contains("channel"))){
                                  var url: String!
                     if(youTubeURL.contains("user")){
@@ -71,5 +72,5 @@ import Foundation
         }
         }
         }
-    }
+    }*/
     }

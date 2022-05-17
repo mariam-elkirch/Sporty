@@ -9,6 +9,8 @@ import Foundation
 import  Alamofire
 protocol NetworkServiceProtocol{
   static func sportResult(complitionHandler : @escaping (SportsModel?) -> Void)
+    static func legsResult(strSport : String , complitionHandler : @escaping (LeagueModel?) -> Void)
+static func eventsResult(idLeague : String , complitionHandler : @escaping (Events?) -> Void)
 }
     
 
@@ -91,7 +93,27 @@ class NetworkServic : NetworkServiceProtocol {
         
     }
     
+    static func eventsResult(idLeague : String , complitionHandler : @escaping (Events?) -> Void){
+            print("first Servicemmmmmmmmmmmmmmmmmmm")
+       //var strSport = "Soccer"
+                     Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4617")
+                         .response{(responseData) in
+                             print(responseData,"responceServicemmmmmmmmmmmmmmmmmmm")
+        guard let data = responseData.data else {
+             print("guard Servicemmmmmmmmmmmmmmmmmmm")
+                            return}
+                do {
+            let myevents = try JSONDecoder().decode(Events.self, from: data)
+                complitionHandler(myevents)
+
+                    print(myevents.events[1].idHomeTeam ?? " " , "Home Event")
+                }catch {
+                print(error)
+                complitionHandler(nil)
+
+                }}
+        
     
     
-    
+}
 }

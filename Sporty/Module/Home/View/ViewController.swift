@@ -35,7 +35,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
                     indicator.startAnimating()
                     
                     presenter = HomePresenter(NWService: NetworkServic())
-                    presenter.attachView(view: self)
+        presenter.attachView(view: self)
                     
                     presenter.getItems()
         mycollectionsport.dataSource = self

@@ -22,7 +22,7 @@ import Kingfisher
            var presenter : LeaguePresenter!
            // Modle for View
     @IBOutlet weak var table: UITableView!
-    var resultView: [String]!
+    var resultView: [String]?
         override func viewDidLoad() {
             super.viewDidLoad()
             print("view did")
@@ -122,9 +122,9 @@ import Kingfisher
             // I have the result
             //presenter.result
         }
-        func renderTableView(){
-            resultView = presenter.result.map({ (item) -> String in
-            presenter.getItems(sportName: sport ?? "Soceer")
+        func renderTableView(){//Thread 1: Fatal error: Unexpectedly found nil while implicitly unwrapping an
+            resultView = presenter.result!.map({ (item) -> String in
+                presenter.getItems(sportName: sport ?? "Soceer")
              //   presenter.getTeams(teamName: "BTCC")
               //  presenter.getYoutube()
                 print(item.idLeague , "presenter done")
