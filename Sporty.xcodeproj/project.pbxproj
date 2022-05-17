@@ -41,6 +41,7 @@
 		ACAB3F342832E74D0057D643 /* UpCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACAB3F322832E74D0057D643 /* UpCollectionViewCell.xib */; };
 		ACB29E96282E79230029EE9E /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB29E95282E79230029EE9E /* HomePresenter.swift */; };
 		ACB29E98282EA2530029EE9E /* SportCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB29E97282EA2530029EE9E /* SportCollectionViewCell.swift */; };
+		ACDA0E07283427A6000014F5 /* AlamofireSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA0E06283427A6000014F5 /* AlamofireSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		ACAB3F322832E74D0057D643 /* UpCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpCollectionViewCell.xib; sourceTree = "<group>"; };
 		ACB29E95282E79230029EE9E /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		ACB29E97282EA2530029EE9E /* SportCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportCollectionViewCell.swift; sourceTree = "<group>"; };
+		ACDA0E06283427A6000014F5 /* AlamofireSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				AC0BC2F9282D78ED0068C875 /* Service.swift */,
+				ACDA0E06283427A6000014F5 /* AlamofireSource.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				ACB29E96282E79230029EE9E /* HomePresenter.swift in Sources */,
 				0CDE96F5282DCED600F24F34 /* League.swift in Sources */,
 				ACAB3F332832E74D0057D643 /* UpCollectionViewCell.swift in Sources */,
+				ACDA0E07283427A6000014F5 /* AlamofireSource.swift in Sources */,
 				ACB29E98282EA2530029EE9E /* SportCollectionViewCell.swift in Sources */,
 				AC0BC2F6282D75E10068C875 /* Sport.swift in Sources */,
 				0CCCDDA92831816300176331 /* DetailsPresenter.swift in Sources */,

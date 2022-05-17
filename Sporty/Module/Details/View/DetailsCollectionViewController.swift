@@ -16,7 +16,7 @@ protocol DetailLeagueProtocol : AnyObject{
 class DetailsCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, DetailLeagueProtocol {
    
     var presenter : DetailsLeaguePresenter!
-    var resultView: [String]?
+    var resultView: [Event] = []
          // Modle for View
       
     
@@ -32,14 +32,16 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         super.viewDidLoad()
              presenter = DetailsLeaguePresenter(NWService: NetworkServic())
         presenter.attachView(view: self)
-        
+        print("presenterrrrrrrviewmmmmmmmmmmmmmmmmmmm")
         mycollection.dataSource = self
                  mycollection.delegate = self
                      latesteventcollection.delegate=self
                      latesteventcollection.dataSource=self
                      upcommingcollection.delegate=self
                      upcommingcollection.dataSource = self
+          print("after sourceviewmmmmmmmmmmmmmmmmmmm")
         presenter.getItems(myidLeag: "4328")
+          print("pget itemsrrrrrrrviewmmmmmmmmmmmmmmmmmmm")
     }
     func stopAnimatingev() {
            
@@ -47,10 +49,15 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        
        func renderDetailCollectionViewev() {
         print("rendermmmmmmmmmmmmm")
-           resultView = presenter.resultev?.map({ (myitem) -> String in
+          /* resultView = presenter.resultev?.map({ (myitem) -> String in
             print(myitem.idEvent, "hiiiiiiiiiiiiiiiiiiiiiiiiii")
             return myitem.idEvent ?? ""
-           })
+           })*/
+        self.resultView = presenter.resultev ?? []
+        print(resultView[1].idEvent , "mmmmmmmmmmmmmmmmmmmmmmmmmmghada")
+      //  self.latestResultResponse = presenter.result ?? []
+       // myCollectionView.reloadData()
+      //  latestCollectionView.reloadData()
        }
        
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

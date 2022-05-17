@@ -16,8 +16,10 @@ import Foundation
     func attachView(view: DetailLeagueProtocol){
         self.view = view
     }
+    let network = NetworkServic()
         func getItems(myidLeag : String){
-            NetworkServic.eventsResult(idLeague: myidLeag)
+            
+          network.eventsResult(idLeague: myidLeag)
             {[weak self] (result) in
             print(myidLeag ,"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmpp")
             print(" League presenter")

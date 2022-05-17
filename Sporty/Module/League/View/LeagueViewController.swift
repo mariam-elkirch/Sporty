@@ -19,7 +19,7 @@ import Kingfisher
     var legueSelect:Array<League>=[]
          var appdelegate:AppDelegate?
         let indicator = UIActivityIndicatorView(style: .large)
-           var presenter : LeaguePresenter!
+           var presenter : LeaguePresenter?
            // Modle for View
     @IBOutlet weak var table: UITableView!
     var resultView: [String]?
@@ -30,9 +30,9 @@ import Kingfisher
             self.view.addSubview(indicator)
             indicator.startAnimating()
             presenter = LeaguePresenter(NWService: NetworkServic())
-            presenter.attachView(view: self)
-            presenter.getItems(sportName: sport ?? "Soccer")
-            presenter.getTeams(teamName: "BTCC")
+            presenter?.attachView(view: self)
+            presenter?.getItems(sportName: sport ?? "Soccer")
+            presenter?.getTeams(teamName: "BTCC")
 
           //  presenter.getYoutube()
 
@@ -123,8 +123,8 @@ import Kingfisher
             //presenter.result
         }
         func renderTableView(){//Thread 1: Fatal error: Unexpectedly found nil while implicitly unwrapping an
-            resultView = presenter.result!.map({ (item) -> String in
-                presenter.getItems(sportName: sport ?? "Soceer")
+            resultView = presenter?.result?.map({ (item) -> String in
+                presenter?.getItems(sportName: sport ?? "Soceer")
              //   presenter.getTeams(teamName: "BTCC")
               //  presenter.getYoutube()
                 print(item.idLeague , "presenter done")

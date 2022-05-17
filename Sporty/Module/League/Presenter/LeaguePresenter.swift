@@ -8,7 +8,7 @@
 import Foundation
     class LeaguePresenter {
        var result : [League]? // model
-        var result2 : [Team]! // model
+        var result2 : [Team]? // model
 
       internal  var re = [LeagueTwo]()
         
