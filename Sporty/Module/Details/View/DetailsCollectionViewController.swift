@@ -16,11 +16,13 @@ protocol DetailLeagueProtocol : AnyObject{
 class DetailsCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, DetailLeagueProtocol {
  var presenter : DetailsLeaguePresenter!
     var resultView: [Event] = []
+    var upcommingEventSelect: [Event] = []
          // Modle for View
        var strSportName : String? = ""
     var leagueNameForView : String? = ""
     var strCountery : String? = ""
    var teamSelect:Array<Team>=[]
+  
        var presenterTeam : TeamPresenter?
  var resultViewTeam :[String]? = []
     
@@ -62,9 +64,9 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
            })*/
         self.resultView = presenter.resultev ?? []
         if(resultView.count != 0){
-        print(resultView[1].idEvent , "mmmmmmmmmmmmmmmmmmmmmmmmmmghada")
+        print(resultView[1].idEvent , "mmmmmmmmmmmmmmmmmmmmmmmmmmariam")
         }
-      //  if(resultViewTeam.count)
+        self.latesteventcollection.reloadData()
           resultViewTeam = presenterTeam?.resultT.map({(item) -> [String] in
                    print("hag")
                   // print(item.strSport)
@@ -77,6 +79,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         })
 
                self.mycollection.reloadData()
+        self.latesteventcollection.reloadData()
       //  self.latestResultResponse = presenter.result ?? []
        // myCollectionView.reloadData()
       //  latestCollectionView.reloadData()
@@ -87,7 +90,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
             return teamSelect.count
            }
            else if (collectionView == latesteventcollection){
-            return 2
+            return resultView.count
            }
            else{
                return 2}
@@ -114,12 +117,31 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
            }
            else {//collectionView == self.latesteventcollection{
                let celllat = latesteventcollection.dequeueReusableCell(withReuseIdentifier: "cell3", for: indexPath) as! LatestEventsCollectionViewCell
-            celllat.latestlabel.text = "hi" //eventSelect[indexPath.row].idHomeTeam
+            celllat.latestlabel.text =  resultView[indexPath.row].idEvent
                return celllat
            }
           
        }
-       
+       func compareDate(eventDate:String)->Int{
+         var comparedValue=0
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let currentDate = dateFormatter.string(from: date)
+        if eventDate.compare(currentDate) == .orderedSame {
+                  comparedValue = 1
+               }
+               else if eventDate.compare(currentDate) == .orderedAscending{
+                   comparedValue = 2
+               }
+               else if eventDate.compare(currentDate) == .orderedDescending{
+                   comparedValue = 3
+               }
+        else{
+            comparedValue = 0
+        }
+        return comparedValue
+    }
     /*
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -130,3 +152,28 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
     */
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,5 +25,15 @@ class Event: Codable {
     var strThumb: String
     var strTime: String
     var intAwayScore: String*/
+     
+     var strTime: String
+     var idLeague: String
+     var strEvent: String
+     var intHomeScore: String
+      var intAwayScore: String
+    var strAwayTeam: String
+      var strThumb: String
+    var strHomeTeam: String
+    var dateEvent: String
     var idEvent: String
 }
