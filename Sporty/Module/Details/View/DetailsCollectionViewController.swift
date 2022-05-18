@@ -14,6 +14,8 @@ protocol DetailLeagueProtocol : AnyObject{
     func renderDetailCollectionViewev()
 }
 class DetailsCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, DetailLeagueProtocol {
+    var strSportName : String? = ""
+    var strCountery : String? = ""
    var teamSelect:Array<Team>=[]
     var presenter : DetailsLeaguePresenter?
     var presenterTeam : TeamPresenter?
@@ -28,7 +30,6 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
     
     @IBOutlet weak var upcommingcollection: UICollectionView!
     @IBOutlet weak var latesteventcollection: UICollectionView!
-    
     @IBOutlet weak var mycollection: UICollectionView!
     
    
@@ -39,7 +40,9 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         presenterTeam = TeamPresenter(NWService: NetworkServic())
         presenter?.attachView(view: self)
         presenterTeam?.attachView(view: self)
-
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        self.mycollection.collectionViewLayout = layout
         print("presenterrrrrrrviewmmmmmmmmmmmmmmmmmmm")
         mycollection.dataSource = self
                  mycollection.delegate = self
@@ -53,9 +56,11 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         
         
         /////////TEAM PRESENTER
-        
-        presenterTeam?.getItemsTeams(sportName: "tt")
-        print(presenterTeam?.getItemsTeams(sportName: ""), "noteam")
+        print(strSportName , "spoertnameeeee" )
+        print(strCountery , "counteryyyy")
+        presenterTeam?.getItemsTeams(sportName: strSportName ?? "B" , countery:strCountery ?? "")
+        print(presenterTeam?.getItemsTeams(sportName: strSportName ?? "Soccer" , countery:strCountery ?? ""
+            ), "noteam")
     }
     func stopAnimatingev() {
            
@@ -63,6 +68,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        
        func renderDetailCollectionViewev() {
         print("rendermmmmmmmmmmmmm")
+
           /* resultView = presenter.resultev?.map({ (myitem) -> String in
             print(myitem.idEvent, "hiiiiiiiiiiiiiiiiiiiiiiiiii")
             return myitem.idEvent ?? ""
@@ -74,7 +80,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
 //        countTeam = presenterTeam?.result?.count
 //        print(resultViewTeam[1].strTeamBadge , "hagerrrrrrrrrrr")
 //        teamSelect.append(resultViewTeam[countTeam ?? 1 ])
-        print(resultView[1].idEvent , "mmmmmmmmmmmmmmmmmmmmmmm")
+      //  print(resultView[1].idEvent , "mmmmmmmmmmmmmmmmmmmmmmm")
         //mycollection.reloadData()
         ///////
         
@@ -84,10 +90,11 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
             print( item[1].strTeamBadge , "hagerrrrrrrrrrr")
 
             self.teamSelect.append(contentsOf: item)
-                   presenterTeam?.getItemsTeams(sportName: "Soceer")
+            presenterTeam?.getItemsTeams(sportName: strSportName ?? "", countery: strCountery ?? "")
                  //  print(sportSelect[1].strSport ?? "")
                    return resultViewTeam
         }) as! [String]
+
                self.mycollection.reloadData()
         
 //////
@@ -145,6 +152,20 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
            }
           
        }
+//      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//                if let cell = sender as? UICollectionViewCell,
+//
+//                   let indexPath = mycollection.indexPath(for: cell) {
+//    //myCollectionViewTeams
+//                    let vc = segue.destination as! DetailsCollectionViewController //Cast with your DestinationController
+//                    //Now simply set the title property of vc
+//                   // vc.id = legueSelect[indexPath.row].idLeague
+//                    //vc.str =  legueSelect[indexPath.row].strLeague
+//                              //     vc.sport = legueSelect[indexPath.row].strLeague
+//
+//                }
+//           }
        
     /*
     // MARK: - Navigation

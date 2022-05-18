@@ -12,4 +12,3 @@ class MyCustomTeamCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var myImage: UIImageView!
 }
-//detailcell

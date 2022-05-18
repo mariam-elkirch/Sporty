@@ -11,9 +11,7 @@ import Foundation
     //var NWService : MovieService! // service
        var resultev : [Event]? // model
 
-    
-    
-       weak var view : DetailLeagueProtocol!  // DI
+       weak var view : DetailLeagueProtocol? // DI
         init(NWService : NetworkServiceProtocol){
            }
     func attachView(view: DetailLeagueProtocol){
@@ -30,14 +28,12 @@ import Foundation
                 print(result?.events[2].idEvent ?? "")
                 self?.resultev = result?.events
                 
-                
-                
             //self.tableView.reloadData()
             
 
             DispatchQueue.main.async {
-                self?.view.stopAnimatingev()
-                self?.view.renderDetailCollectionViewev()
+                self?.view?.stopAnimatingev()
+                self?.view?.renderDetailCollectionViewev()
                 //self.label?.text = result.items[0].header ?? ""
             }
         }

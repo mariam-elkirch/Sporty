@@ -32,7 +32,6 @@ import Kingfisher
             presenter = LeaguePresenter(NWService: NetworkServic())
             presenter?.attachView(view: self)
             presenter?.getItems(sportName: sport ?? "Soccer")
-            presenter?.getTeams(teamName: "BTCC")
 
           //  presenter.getYoutube()
 
@@ -56,7 +55,8 @@ import Kingfisher
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyCustomCellTableViewCell
-
+            cell.myLabel.adjustsFontSizeToFitWidth = true
+            //cell.myLabel.minimumScaleFactor = 0.4
             cell.myLabel.text = legueSelect[indexPath.row].strLeague
             print(legueSelect[indexPath.row].strLeague , "haaaaggggg")
     let url=URL(string:self.legueSelect[indexPath.row].strBadge ??
@@ -88,8 +88,10 @@ import Kingfisher
 //myCollectionViewTeams
                 let vc = segue.destination as! DetailsCollectionViewController //Cast with your DestinationController
                 //Now simply set the title property of vc
+                vc.strSportName = legueSelect[indexPath.row].strSport
+                vc.strCountery = legueSelect[indexPath.row].strCountry
                // vc.id = legueSelect[indexPath.row].idLeague
-                //vc.str =  legueSelect[indexPath.row].strLeague
+                //vc.strSport =  legueSelect[indexPath.row].strLeague
                           //     vc.sport = legueSelect[indexPath.row].strLeague
 
             }

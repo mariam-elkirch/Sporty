@@ -16,8 +16,8 @@ class TeamPresenter {
 func attachView(view: DetailLeagueProtocol?){
     self.view = view
 }
-    func getItemsTeams(sportName : String){
-        NetworkServic.teamResult{[weak self] (result) in
+    func getItemsTeams(sportName : String , countery : String){
+        NetworkServic.teamResult(strSport: sportName, countery: countery){[weak self] (result) in
         print(sportName,"nameofteampresenter")
         print("team presenter")
          print(result?.teams?[0].strTeamBadge ?? "noodata", "teamssspresenterr")
@@ -25,7 +25,7 @@ func attachView(view: DetailLeagueProtocol?){
         DispatchQueue.main.async {
             self?.view?.stopAnimatingev()
             self?.view?.renderDetailCollectionViewev()
-            //self.label?.text = result.items[0].header ?? ""
+            
         }
     }
     }

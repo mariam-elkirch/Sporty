@@ -12,8 +12,10 @@ import Foundation
     let idLeague : String
     let strLeague: String
     let strSport: String
+    let strCountry : String
   public  let strYoutube : String
     let strBadge : String
+  
 }
  class LeagueTwo : NSObject {
     public var strYoutube : String? 

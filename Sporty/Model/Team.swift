@@ -8,5 +8,10 @@
 
 import Foundation
  class Team : Codable {
-    let strTeamBadge : String
+     let strTeamBadge : String
+     let intFormedYear: String
+      let intStadiumCapacity: String
+      let strStadium : String
+      let strStadiumLocation: String
+      let strDescriptionEN: String
 }

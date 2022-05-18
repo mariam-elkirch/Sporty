@@ -53,26 +53,26 @@ class NetworkServic : NetworkServiceProtocol {
 
             }}
 }
-     static func teamResult(strLeague : String ,complitionHandler : @escaping (TeamModel?) -> Void){
-            
-       
-                     Alamofire.request(" https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=BTCC")
-                      //  \(strLeague)")
-                         .response{(responseData) in
-        guard let data = responseData.data else {
-                            return}
-                do {
-            let countries = try JSONDecoder().decode(TeamModel.self, from: data)
-                complitionHandler(countries)
-
-                    print(countries.teams?[0].strTeamBadge ?? "noData"  , "hh")
-                }catch {
-                print(error)
-                complitionHandler(nil)
-
-                }}
-    }
-    
+//     static func teamResult(strLeague : String ,complitionHandler : @escaping (TeamModel?) -> Void){
+//
+//
+//                     Alamofire.request(" https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=BTCC")
+//                      //  \(strLeague)")
+//                         .response{(responseData) in
+//        guard let data = responseData.data else {
+//                            return}
+//                do {
+//            let countries = try JSONDecoder().decode(TeamModel.self, from: data)
+//                complitionHandler(countries)
+//
+//                    print(countries.teams?[0].strTeamBadge ?? "noData"  , "hh")
+//                }catch {
+//                print(error)
+//                complitionHandler(nil)
+//
+//                }}
+//    }
+//
     
 //    https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=English%20Premier%20League
     
@@ -113,9 +113,15 @@ class NetworkServic : NetworkServiceProtocol {
 
             }}
 }
-    
-    static func teamResult(complitionHandler : @escaping (TeamModel?) -> Void){
-           Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?s=Baseball&c=Canada")
+    //            https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?s%20=Soccer&c=Andorra
+    static func teamResult(strSport : String , countery : String, complitionHandler : @escaping (TeamModel?) -> Void){
+       
+       
+        if(strSport != "" && countery != ""){
+            print(strSport ,"strSport Inside serviceeeee")
+                   print(countery , "counteryy inside serviceeeeee")
+           Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?s=\(strSport)\("&c=")\(countery)")
+
            .response{(responseData) in
                guard let data = responseData.data else {
                    return}
@@ -130,6 +136,7 @@ class NetworkServic : NetworkServiceProtocol {
                    complitionHandler(nil)
           // self.callBack?(nil, false, error.localizedDescription)
                }}
+        }
        }
     
     
