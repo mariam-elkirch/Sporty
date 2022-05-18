@@ -88,10 +88,11 @@ import Kingfisher
 //myCollectionViewTeams
                 let vc = segue.destination as! DetailsCollectionViewController //Cast with your DestinationController
                 //Now simply set the title property of vc
-                vc.strSportName = legueSelect[indexPath.row].strSport
-                vc.strCountery = legueSelect[indexPath.row].strCountry
-               // vc.id = legueSelect[indexPath.row].idLeague
-                //vc.strSport =  legueSelect[indexPath.row].strLeague
+               // vc.strSportName = legueSelect[indexPath.row].strSport
+               // vc.strCountery = legueSelect[indexPath.row].strCountry
+                vc.leagueNameForView = legueSelect[indexPath.row].strLeague
+             //   vc.strSportLe =  legueSelect[indexPath.row].strLeague
+              //  vc.
                           //     vc.sport = legueSelect[indexPath.row].strLeague
 
             }

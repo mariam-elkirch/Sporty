@@ -8,7 +8,7 @@
 
 import Foundation
 class TeamPresenter {
-   var resultT : [Team]?  // model
+   var resultT : [Team]!  // model
    
    weak var view : DetailLeagueProtocol?  // DI
     init(NWService : NetworkServiceProtocol){
@@ -16,9 +16,9 @@ class TeamPresenter {
 func attachView(view: DetailLeagueProtocol?){
     self.view = view
 }
-    func getItemsTeams(sportName : String , countery : String){
-        NetworkServic.teamResult(strSport: sportName, countery: countery){[weak self] (result) in
-        print(sportName,"nameofteampresenter")
+    func getItemsTeams(strLeague : String){
+        NetworkServic.teamResult(sportTeamLeg: strLeague){[weak self] (result) in
+      //  print(sportName,"nameofteampresenter")
         print("team presenter")
          print(result?.teams?[0].strTeamBadge ?? "noodata", "teamssspresenterr")
             self?.resultT = result?.teams

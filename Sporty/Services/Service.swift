@@ -114,13 +114,13 @@ class NetworkServic : NetworkServiceProtocol {
             }}
 }
     //            https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?s%20=Soccer&c=Andorra
-    static func teamResult(strSport : String , countery : String, complitionHandler : @escaping (TeamModel?) -> Void){
+    static func teamResult(sportTeamLeg : String ,  complitionHandler : @escaping (TeamModel?) -> Void){
        
        
-        if(strSport != "" && countery != ""){
-            print(strSport ,"strSport Inside serviceeeee")
-                   print(countery , "counteryy inside serviceeeeee")
-           Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?s=\(strSport)\("&c=")\(countery)")
+
+            print(sportTeamLeg ,"strSport Inside serviceeeee")
+                 //  print(countrySportLeg , "counteryy inside serviceeeeee")
+           Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=\(sportTeamLeg)")
 
            .response{(responseData) in
                guard let data = responseData.data else {
@@ -129,7 +129,7 @@ class NetworkServic : NetworkServiceProtocol {
                let countries = try JSONDecoder().decode(TeamModel.self, from: data)
                   // self.callBack?(countries, true,"")
              complitionHandler(countries)
-                   print(countries.teams![2].strTeamBadge ,"imagelink")
+                   print(countries.teams?[2].strTeamBadge ,"imagelink")
                    print("teamservice")
                } catch {
                    print(error)
@@ -140,5 +140,3 @@ class NetworkServic : NetworkServiceProtocol {
        }
     
     
-}
-
