@@ -21,8 +21,9 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        var strSportName : String? = ""
     var leagueNameForView : String? = ""
     var strCountery : String? = ""
+    var leagueEventName: String? = ""
    var teamSelect:Array<Team>=[]
-  
+    var upcommingEventResult: [Event] = []
        var presenterTeam : TeamPresenter?
  var resultViewTeam :[String]? = []
     
@@ -47,10 +48,28 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                      upcommingcollection.delegate=self
                      upcommingcollection.dataSource = self
           print("after sourceviewmmmmmmmmmmmmmmmmmmm")
-        presenter.getItems(myidLeag: "4328")
-          print("pget itemsrrrrrrrviewmmmmmmmmmmmmmmmmmmm")
+        presenter.getItems(idfromViewLeg: "4416")
+          print(leagueEventName,"pget itemsrrrrrrrviewmmmmmmmmmmmmmmmmmmm")
         
         presenterTeam?.getItemsTeams(strLeague: leagueNameForView ?? "B" )
+        
+        
+       latesteventcollection.collectionViewLayout = UICollectionViewFlowLayout()
+
+              //
+              if let layout = latesteventcollection?.collectionViewLayout as? UICollectionViewFlowLayout{
+                       layout.minimumLineSpacing = 0
+                   layout.minimumInteritemSpacing = 0
+                       layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+                     //  let size = CGSize(width:(mycollectionsport!.bounds.width-165)/2, height: 220)
+                  // let size = CGSize(width : latesteventcollection.frame.width * 0.44999 , height: latesteventcollection.frame.height * 0.249)
+                layout.itemSize =   CGSize(width: latesteventcollection.frame.width, height: latesteventcollection.frame.height)
+                layout.scrollDirection = .vertical
+       
+                 /// teamsCollectionView.collectionViewLayout = teamCell_layout
+                latesteventcollection.collectionViewLayout = layout
+                   
+               }
     }
     func stopAnimatingev() {
            
@@ -64,9 +83,30 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
            })*/
         self.resultView = presenter.resultev ?? []
         if(resultView.count != 0){
-        print(resultView[1].idEvent , "mmmmmmmmmmmmmmmmmmmmmmmmmmariam")
+        print(resultView[1].idEvent , "mmmmmmmmmmmmmmmmmmmariam")
+            var count = resultView.count ?? 0
+                                 for i in stride(from: 0, to: count-1 , by: 1){
+                                       print(resultView[i].dateEvent ,"mmmmmmmmmm")
+                                   var cc = compareDate(eventDate:resultView[i].dateEvent ?? "")
+                                  print(cc , "mmmmmmmmmmmmmmmmmm")
+                                 if(compareDate(eventDate:resultView[i].dateEvent ?? "") == 3 ){
+                                     print(resultView[i].dateEvent , "mmmmmmmmmmmmmmnside id")
+                                     upcommingEventResult.append((resultView[i]))
+                             //self.tableView.reloadData()
+                                 }
+                                 }
+                  if(upcommingEventResult.count != 0){
+                      
+                      print(upcommingEventResult[1].idEvent , "mmmmmmmmmmmmghaa")
+                      
+                  }
         }
-        self.latesteventcollection.reloadData()
+       
+      
+        
+        
+        
+        
           resultViewTeam = presenterTeam?.resultT.map({(item) -> [String] in
                    print("hag")
                   // print(item.strSport)
@@ -77,7 +117,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                  //  print(sportSelect[1].strSport ?? "")
             return resultViewTeam ?? []
         })
-
+        self.upcommingcollection.reloadData()
                self.mycollection.reloadData()
         self.latesteventcollection.reloadData()
       //  self.latestResultResponse = presenter.result ?? []
@@ -117,7 +157,20 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
            }
            else {//collectionView == self.latesteventcollection{
                let celllat = latesteventcollection.dequeueReusableCell(withReuseIdentifier: "cell3", for: indexPath) as! LatestEventsCollectionViewCell
-            celllat.latestlabel.text =  resultView[indexPath.row].idEvent
+            celllat.backgroundColor = .cyan
+            celllat.latestlabel.text =  resultView[indexPath.row].strHomeTeam
+            
+            
+            let url=URL(string: resultView[indexPath.row].strThumb ?? "https://pngimage.net/wp-content/uploads/2018/05/courses-png-6.png")
+                                      
+                       let res=ImageResource(downloadURL: url!)
+           celllat.imgname.kf.setImage(with: res, placeholder: UIImage(named: "flower1.jpg"))
+            //celllat.imgname.image = UIImage(named: "flower1.jpg")
+            celllat.dateLabel.text = resultView[indexPath.row].dateEvent
+            celllat.teamname.text = resultView[indexPath.row].strAwayTeam
+            celllat.scorefirst.text = resultView[indexPath.row].intHomeScore
+            celllat.secscore.text = resultView[indexPath.row].intAwayScore
+            celllat.timeLabel.text = resultView[indexPath.row].strTime
                return celllat
            }
           

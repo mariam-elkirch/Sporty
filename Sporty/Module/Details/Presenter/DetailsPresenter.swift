@@ -18,11 +18,11 @@ import Foundation
         self.view = view
     }
     let network = NetworkServic()
-        func getItems(myidLeag : String){
+        func getItems(idfromViewLeg : String){
             
-          network.eventsResult(idLeague: myidLeag)
+          network.eventsResult( myidLeague: idfromViewLeg)
             {[weak self] (result) in
-            print(myidLeag ,"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmpp")
+           // print(myidLeag ,"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmpp")
             print(" League presenter")
             
                 print(result?.events[2].idEvent ?? "")

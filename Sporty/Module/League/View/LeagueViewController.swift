@@ -91,6 +91,7 @@ import Kingfisher
                // vc.strSportName = legueSelect[indexPath.row].strSport
                // vc.strCountery = legueSelect[indexPath.row].strCountry
                 vc.leagueNameForView = legueSelect[indexPath.row].strLeague
+                vc.leagueEventName = legueSelect[indexPath.row].idLeague
              //   vc.strSportLe =  legueSelect[indexPath.row].strLeague
               //  vc.
                           //     vc.sport = legueSelect[indexPath.row].strLeague

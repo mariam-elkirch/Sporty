@@ -10,7 +10,7 @@ import  Alamofire
 protocol NetworkServiceProtocol{
   static func sportResult(complitionHandler : @escaping (SportsModel?) -> Void)
     static func legsResult(strSport : String , complitionHandler : @escaping (LeagueModel?) -> Void)
-func eventsResult(idLeague : String , complitionHandler : @escaping (Events?) -> Void)
+func eventsResult(myidLeague : String , complitionHandler : @escaping (Events?) -> Void)
 }
     
 
@@ -95,11 +95,11 @@ class NetworkServic : NetworkServiceProtocol {
         
     }
     
-    func eventsResult(idLeague : String , complitionHandler : @escaping (Events?) -> Void){
+    func eventsResult(myidLeague : String , complitionHandler : @escaping (Events?) -> Void){
         
    //var strSport = "Soccer"
-                 Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4617")
-                     .response{(responseData) in
+        Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4617", method: .get, parameters: nil,encoding: URLEncoding.default, headers: nil)
+                     .responseJSON{(responseData) in
     guard let data = responseData.data else {
                         return}
             do {
