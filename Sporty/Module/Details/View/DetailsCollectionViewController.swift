@@ -36,6 +36,9 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        self.mycollection.collectionViewLayout = layout
              presenter = DetailsLeaguePresenter(NWService: NetworkServic())
         presenter.attachView(view: self)
           presenterTeam = TeamPresenter(NWService: NetworkServic())
@@ -130,6 +133,8 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
 
             self.teamSelect.append(contentsOf: item)
             presenterTeam?.getItemsTeams(strLeague: leagueNameForView ?? "B")
+            self.mycollection.reloadData()
+
                  //  print(sportSelect[1].strSport ?? "")
             return resultViewTeam ?? []
         })
@@ -214,15 +219,34 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         }
         return comparedValue
     }
-    
-    /*
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+                    if let cell = sender as? UICollectionViewCell,
+                        
+                       let indexPath = mycollection.indexPath(for: cell) {
+                        let vc = segue.destination as! TeamDetailsViewController
+                        
+                        //Now simply set the title property of
+    vc.strTeamImage = teamSelect[indexPath.row].strTeamBadge
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
+                if let cell = sender as? UICollectionViewCell,
+                    
+                   let indexPath = mycollection.indexPath(for: cell) {
+                    let vc = segue.destination as! TeamDetailsViewController
+                    
+                    //Now simply set the title property of
+vc.strTeamImage = teamSelect[indexPath.row].strTeamBadge
+                    vc.capacity = teamSelect[indexPath.row].intStadiumCapacity
+                    vc.desc = teamSelect[indexPath.row].strDescriptionEN
+                    vc.year = teamSelect[indexPath.row].intFormedYear
+                    vc.staduimLoc = teamSelect[indexPath.row].strStadiumLocation
+                    vc.staduimName = teamSelect[indexPath.row].strStadium
+                
+                }
+
+}
+}
 
 }
 extension DetailsCollectionViewController :  UICollectionViewDelegateFlowLayout {
@@ -232,6 +256,22 @@ extension DetailsCollectionViewController :  UICollectionViewDelegateFlowLayout 
            
            if (collectionView == latesteventcollection){
                returnedSize =  CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.width)
+           }
+           if (collectionView == mycollection){
+               returnedSize =  CGSize(width: collectionView.frame.width / 3 , height: collectionView.frame.width / 3)
+           }
+           if (collectionView == upcommingcollection){
+               returnedSize = CGSize(width: collectionView.frame.width / 1.0 , height: collectionView.frame.width / 2.0)
+           }
+           // return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.width)
+           return returnedSize
+           
+       }
+   
+        
+    }
+    
+  
            }
            if (collectionView == mycollection){
                returnedSize =  CGSize(width: collectionView.frame.width / 3 , height: collectionView.frame.width / 3)

@@ -53,6 +53,7 @@ class NetworkServic : NetworkServiceProtocol {
 
             }}
 }
+    
 //     static func teamResult(strLeague : String ,complitionHandler : @escaping (TeamModel?) -> Void){
 //
 //
@@ -76,24 +77,7 @@ class NetworkServic : NetworkServiceProtocol {
     
 //    https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=English%20Premier%20League
     
-     static func youtubeResult(url : String , complitionHandler : @escaping (YouTubeModel?) -> Void){
-            
-        Alamofire.request(url).response{(responseData) in
-        guard let data = responseData.data else {
-            return}
-                do {
-            let countries = try JSONDecoder().decode(YouTubeModel.self, from: data)
-                complitionHandler(countries)
-
-                    print(countries.items[3]?.brandingSettings  ?? "noData"  , "hh")
-                }catch {
-                print(error)
-                complitionHandler(nil)
-
-                }}
-        
-        
-    }
+     
     
     func eventsResult(myidLeague : String , complitionHandler : @escaping (Events?) -> Void){
         
@@ -113,10 +97,8 @@ class NetworkServic : NetworkServiceProtocol {
 
             }}
 }
-    //            https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?s%20=Soccer&c=Andorra
+   
     static func teamResult(sportTeamLeg : String ,  complitionHandler : @escaping (TeamModel?) -> Void){
-       
-       
 
             print(sportTeamLeg ,"strSport Inside serviceeeee")
                  //  print(countrySportLeg , "counteryy inside serviceeeeee")
@@ -137,6 +119,7 @@ class NetworkServic : NetworkServiceProtocol {
           // self.callBack?(nil, false, error.localizedDescription)
                }}
         }
+    
        }
     
     
