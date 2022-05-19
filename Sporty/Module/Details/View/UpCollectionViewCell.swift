@@ -10,6 +10,9 @@ import UIKit
 
 class UpCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var upcommingImg: UIImageView!
+    @IBOutlet weak var timeUpcomeLabel: UILabel!
+    @IBOutlet weak var dateLabelUpcome: UILabel!
     @IBOutlet weak var uplabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
