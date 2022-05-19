@@ -68,8 +68,24 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        
                  /// teamsCollectionView.collectionViewLayout = teamCell_layout
                 latesteventcollection.collectionViewLayout = layout
+        }
+                
+                
+                
+                if let layoutupgrade = upcommingcollection?.collectionViewLayout as? UICollectionViewFlowLayout{
+                                      layoutupgrade.minimumLineSpacing = 0
+                                  layoutupgrade.minimumInteritemSpacing = 0
+                                      layoutupgrade.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+                               layoutupgrade.itemSize =   CGSize(width: upcommingcollection.frame.width, height: upcommingcollection.frame.height * 2)
+                              layoutupgrade.scrollDirection = .horizontal
+                      
+                                /// teamsCollectionView.collectionViewLayout = teamCell_layout
+                               upcommingcollection.collectionViewLayout = layoutupgrade
                    
-               }
+                }
+                
+                
+        
     }
     func stopAnimatingev() {
            
@@ -82,7 +98,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
             return myitem.idEvent ?? ""
            })*/
         self.resultView = presenter.resultev ?? []
-        if(resultView.count != 0){
+        if( resultView.count > 0){
         print(resultView[1].idEvent , "mmmmmmmmmmmmmmmmmmmariam")
             var count = resultView.count ?? 0
                                  for i in stride(from: 0, to: count-1 , by: 1){
@@ -152,7 +168,10 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
            }
            else if (collectionView == self.upcommingcollection){
                 let cellup = upcommingcollection.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! UpCollectionViewCell
-               cellup.uplabel.text = "mmmmmmmmmmmmmmmmmmm"
+               cellup.uplabel.text = "mmmmmmmmmmmm"
+            cellup.upcommingImg.image = UIImage(named: "flower1.jpg")
+            cellup.dateLabelUpcome.text = "vvvv"
+            cellup.timeUpcomeLabel.text = "mmmm"
                return cellup
            }
            else {//collectionView == self.latesteventcollection{

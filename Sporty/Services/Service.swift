@@ -98,7 +98,7 @@ class NetworkServic : NetworkServiceProtocol {
     func eventsResult(myidLeague : String , complitionHandler : @escaping (Events?) -> Void){
         
    //var strSport = "Soccer"
-        Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4617", method: .get, parameters: nil,encoding: URLEncoding.default, headers: nil)
+        Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4328", method: .get, parameters: nil,encoding: URLEncoding.default, headers: nil)
                      .responseJSON{(responseData) in
     guard let data = responseData.data else {
                         return}
