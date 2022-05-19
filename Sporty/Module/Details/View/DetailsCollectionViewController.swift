@@ -13,7 +13,7 @@ protocol DetailLeagueProtocol : AnyObject{
     func stopAnimatingev()
     func renderDetailCollectionViewev()
 }
-class DetailsCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, DetailLeagueProtocol {
+class DetailsCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,  DetailLeagueProtocol {
  var presenter : DetailsLeaguePresenter!
     var resultView: [Event] = []
     var upcommingEventSelect: [Event] = []
@@ -57,7 +57,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        latesteventcollection.collectionViewLayout = UICollectionViewFlowLayout()
 
               //
-              if let layout = latesteventcollection?.collectionViewLayout as? UICollectionViewFlowLayout{
+            /*  if let layout = latesteventcollection?.collectionViewLayout as? UICollectionViewFlowLayout{
                        layout.minimumLineSpacing = 0
                    layout.minimumInteritemSpacing = 0
                        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -68,11 +68,11 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        
                  /// teamsCollectionView.collectionViewLayout = teamCell_layout
                 latesteventcollection.collectionViewLayout = layout
-        }
+        }*/
                 
                 
                 
-                if let layoutupgrade = upcommingcollection?.collectionViewLayout as? UICollectionViewFlowLayout{
+               /* if let layoutupgrade = upcommingcollection?.collectionViewLayout as? UICollectionViewFlowLayout{
                                       layoutupgrade.minimumLineSpacing = 0
                                   layoutupgrade.minimumInteritemSpacing = 0
                                       layoutupgrade.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -82,7 +82,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                                 /// teamsCollectionView.collectionViewLayout = teamCell_layout
                                upcommingcollection.collectionViewLayout = layoutupgrade
                    
-                }
+                }*/
                 
                 
         
@@ -214,6 +214,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         }
         return comparedValue
     }
+    
     /*
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -224,28 +225,26 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
     */
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+extension DetailsCollectionViewController :  UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+           
+           var returnedSize = CGSize()
+           
+           if (collectionView == latesteventcollection){
+               returnedSize =  CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.width)
+           }
+           if (collectionView == mycollection){
+               returnedSize =  CGSize(width: collectionView.frame.width / 3 , height: collectionView.frame.width / 3)
+           }
+           if (collectionView == upcommingcollection){
+               returnedSize = CGSize(width: collectionView.frame.width / 1.0 , height: collectionView.frame.width / 2.0)
+           }
+           // return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.width)
+           return returnedSize
+           
+       }
+   
+        
+    }
+    
+  
