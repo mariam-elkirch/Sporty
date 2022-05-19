@@ -14,7 +14,9 @@ protocol DetailLeagueProtocol : AnyObject{
     func renderDetailCollectionViewev()
 }
 class DetailsCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, DetailLeagueProtocol {
- var presenter : DetailsLeaguePresenter!
+    
+    @IBOutlet weak var btnFavorite: UIButton!
+    var presenter : DetailsLeaguePresenter!
     var resultView: [Event] = []
     var upcommingEventSelect: [Event] = []
          // Modle for View

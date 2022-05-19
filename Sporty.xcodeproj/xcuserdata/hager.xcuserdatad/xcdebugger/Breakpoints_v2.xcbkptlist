@@ -36,5 +36,98 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B7442B3-39BA-45A8-B5DB-5A62FEE265E2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sporty/Module/Details/View/DetailsCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "DetailsCollectionViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "9B7442B3-39BA-45A8-B5DB-5A62FEE265E2 - e64ce9a27cd15df5"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sporty.DetailsCollectionViewController.__deallocating_deinit"
+                  moduleName = "Sporty"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/Sporty/Sporty/Module/Details/View/DetailsCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "9B7442B3-39BA-45A8-B5DB-5A62FEE265E2 - 4c15dc2c36948100"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sporty.DetailsCollectionViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Sporty.DetailsCollectionViewController"
+                  moduleName = "Sporty"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/Sporty/Sporty/Module/Details/View/DetailsCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "9B7442B3-39BA-45A8-B5DB-5A62FEE265E2 - 33efef1105dfe587"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sporty.DetailsCollectionViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Sporty.DetailsCollectionViewController"
+                  moduleName = "Sporty"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/Sporty/Sporty/Module/Details/View/DetailsCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "487">
+               </Location>
+               <Location
+                  uuid = "9B7442B3-39BA-45A8-B5DB-5A62FEE265E2 - 7d38ee59cac7ff5"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sporty.DetailsCollectionViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Sporty.DetailsCollectionViewController&gt;"
+                  moduleName = "Sporty"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/Sporty/Sporty/Module/Details/View/DetailsCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "9B7442B3-39BA-45A8-B5DB-5A62FEE265E2 - 123d788c7e5153a0"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sporty.DetailsCollectionViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Sporty.DetailsCollectionViewController&gt;"
+                  moduleName = "Sporty"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/Sporty/Sporty/Module/Details/View/DetailsCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "428">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

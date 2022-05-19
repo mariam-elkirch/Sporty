@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KiV-tl-1qC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -273,12 +273,19 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1q-u4-ims">
+                                <rect key="frame" x="339" y="713" width="55" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="heart" catalog="system"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="tdb-y5-3rd"/>
                     </view>
                     <navigationItem key="navigationItem" id="7JR-us-gEX"/>
                     <connections>
+                        <outlet property="btnFavorite" destination="H1q-u4-ims" id="ZbA-V2-mBN"/>
                         <outlet property="latesteventcollection" destination="bA4-Pk-AFI" id="Yr1-r4-YrJ"/>
                         <outlet property="mycollection" destination="3hb-hf-Udv" id="ziA-OT-F8b"/>
                         <outlet property="upcommingcollection" destination="Qxg-8E-maK" id="BAx-x0-nff"/>
@@ -557,6 +564,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ahly" width="263" height="378"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="kingfisher-7.jpg" width="40.816326141357422" height="40.816326141357422"/>
         <image name="youtube2" width="920" height="800"/>
     </resources>
