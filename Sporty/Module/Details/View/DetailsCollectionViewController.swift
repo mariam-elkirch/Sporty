@@ -35,6 +35,9 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        self.mycollection.collectionViewLayout = layout
              presenter = DetailsLeaguePresenter(NWService: NetworkServic())
         presenter.attachView(view: self)
           presenterTeam = TeamPresenter(NWService: NetworkServic())
@@ -74,6 +77,8 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
 
             self.teamSelect.append(contentsOf: item)
             presenterTeam?.getItemsTeams(strLeague: leagueNameForView ?? "B")
+            self.mycollection.reloadData()
+
                  //  print(sportSelect[1].strSport ?? "")
             return resultViewTeam ?? []
         })
@@ -150,30 +155,22 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         // Pass the selected object to the new view controller.
     }
     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+                if let cell = sender as? UICollectionViewCell,
+                    
+                   let indexPath = mycollection.indexPath(for: cell) {
+                    let vc = segue.destination as! TeamDetailsViewController
+                    
+                    //Now simply set the title property of
+vc.strTeamImage = teamSelect[indexPath.row].strTeamBadge
+                    vc.capacity = teamSelect[indexPath.row].intStadiumCapacity
+                    vc.desc = teamSelect[indexPath.row].strDescriptionEN
+                    vc.year = teamSelect[indexPath.row].intFormedYear
+                    vc.staduimLoc = teamSelect[indexPath.row].strStadiumLocation
+                    vc.staduimName = teamSelect[indexPath.row].strStadium
+                
+                }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

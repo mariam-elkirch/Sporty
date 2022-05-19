@@ -17,7 +17,9 @@ func attachView(view: DetailLeagueProtocol?){
     self.view = view
 }
     func getItemsTeams(strLeague : String){
-        NetworkServic.teamResult(sportTeamLeg: strLeague){[weak self] (result) in
+        var strLeagueNoSpace : String
+        strLeagueNoSpace = setUpParam(parameters: strLeague)
+        NetworkServic.teamResult(sportTeamLeg: strLeagueNoSpace){[weak self] (result) in
       //  print(sportName,"nameofteampresenter")
         print("team presenter")
          print(result?.teams?[0].strTeamBadge ?? "noodata", "teamssspresenterr")
@@ -29,4 +31,12 @@ func attachView(view: DetailLeagueProtocol?){
         }
     }
     }
+    
+    func setUpParam(parameters : String) -> String{
+           let suffix : Set<Character> = ["\r"]
+           var newParameters = parameters
+           newParameters.removeAll(where: {suffix.contains($0)})
+           newParameters = newParameters.trimmingCharacters(in: .newlines)
+           return newParameters.replacingOccurrences(of: " ", with: "%20")
+       }
 }

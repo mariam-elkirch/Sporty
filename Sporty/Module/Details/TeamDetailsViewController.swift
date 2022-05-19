@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Kingfisher
 class TeamDetailsViewController: UIViewController {
     
     @IBOutlet weak var myTeamImg: UIImageView!
@@ -22,15 +22,26 @@ class TeamDetailsViewController: UIViewController {
     @IBOutlet weak var stadiumLocation: UILabel!
     
     @IBOutlet weak var Details: UILabel!
-    //    strTeamBadge : String
-//    let intFormedYear: String
-//     let intStadiumCapacity: String
-//     let strStadium : String
-//     let strStadiumLocation: String
-//     let strDescriptionEN: Str
+    var strTeamImage : String?
+        var year : String?
+         var capacity: String?
+         var staduimName : String?
+         var staduimLoc: String?
+         var desc: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let url=URL(string: strTeamImage ?? "https://pngimage.net/wp-content/uploads/2018/05/courses-png-6.png")
+                                  
+        let res = ImageResource(downloadURL: url!)
+        
+       myTeamImg.kf.setImage(with: res, placeholder: UIImage(named: "flower1.jpg"))
+        print( staduimName ,"stadteamdetails")
+        formedYear.text = year
+        staduim.text = staduimName
+        stadiumCpacity.text = capacity
+        stadiumLocation.text = staduimLoc
+        Details.text = description
         // Do any additional setup after loading the view.
     }
     

@@ -32,7 +32,7 @@ import Kingfisher
             presenter = LeaguePresenter(NWService: NetworkServic())
             presenter?.attachView(view: self)
             presenter?.getItems(sportName: sport ?? "Soccer")
-
+            self.title = "Leagues"
           //  presenter.getYoutube()
 
                 self.table.delegate=self
