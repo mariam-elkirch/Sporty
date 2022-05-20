@@ -10,7 +10,7 @@ import  Alamofire
 protocol NetworkServiceProtocol{
   static func sportResult(complitionHandler : @escaping (SportsModel?) -> Void)
     static func legsResult(strSport : String , complitionHandler : @escaping (LeagueModel?) -> Void)
-func eventsResult(myidLeague : String , complitionHandler : @escaping (Events?) -> Void)
+ func eventsResult(myidLeague : String , complitionHandler : @escaping (Events?, Error?) -> Void)
 }
     
 
@@ -79,10 +79,10 @@ class NetworkServic : NetworkServiceProtocol {
     
      
     
-    func eventsResult(myidLeague : String , complitionHandler : @escaping (Events?) -> Void){
+   /* func eventsResult(myidLeague : String , complitionHandler : @escaping (Events?) -> Void){
         
    //var strSport = "Soccer"
-        Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4328", method: .get, parameters: nil,encoding: URLEncoding.default, headers: nil)
+        Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id="+myidLeague, method: .get, parameters: nil,encoding: URLEncoding.default, headers: nil)
                      .responseJSON{(responseData) in
     guard let data = responseData.data else {
                         return}
@@ -96,8 +96,33 @@ class NetworkServic : NetworkServiceProtocol {
             complitionHandler(nil)
 
             }}
-}
-   
+}*/
+   func eventsResult(myidLeague : String , complitionHandler : @escaping (Events?, Error?) -> Void) {
+
+    print("getLeaguesLatestEvents from network")
+
+            let parameters = ["id" : myidLeague] as [String : String]
+           Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?", parameters: parameters ).responseJSON(completionHandler: { (response) in
+               switch response.result{
+                  case .success(_):
+                 guard let data = response.data else {
+               return
+               }
+              print("getLeaguesLatestEvents from network\(data)")
+
+
+
+             do{
+            let result = try JSONDecoder().decode(Events.self, from: data)
+            // print("from Network latest : \(String(describing: result.events?.count))")
+             complitionHandler(result, nil)
+            }
+           catch{}
+              case .failure(_):
+            print("from network leatest error")
+           }
+            })
+               }
     static func teamResult(sportTeamLeg : String ,  complitionHandler : @escaping (TeamModel?) -> Void){
 
             print(sportTeamLeg ,"strSport Inside serviceeeee")
