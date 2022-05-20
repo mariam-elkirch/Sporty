@@ -19,7 +19,10 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
     var presenter : DetailsLeaguePresenter!
     var resultView: [Event] = []
     var upcommingEventSelect: [Event] = []
+    var core : LocalDataModel?
+          var leg : League?
          // Modle for View
+    var l : League?
        var strSportName : String? = ""
     var leagueNameForView : String? = ""
     var strCountery : String? = ""
@@ -28,7 +31,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
     var upcommingEventResult: [Event] = []
        var presenterTeam : TeamPresenter?
  var resultViewTeam :[String]? = []
-    
+    var isFav : Bool?
     @IBOutlet weak var upcommingcollection: UICollectionView!
     @IBOutlet weak var latesteventcollection: UICollectionView!
     
@@ -38,9 +41,9 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        self.mycollection.collectionViewLayout = layout
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .horizontal
+//        self.mycollection.collectionViewLayout = layout
              presenter = DetailsLeaguePresenter(NWService: NetworkServic())
         presenter.attachView(view: self)
           presenterTeam = TeamPresenter(NWService: NetworkServic())
@@ -73,6 +76,9 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        
                  /// teamsCollectionView.collectionViewLayout = teamCell_layout
                 latesteventcollection.collectionViewLayout = layout
+                
+                
+                
         }
                 
                 
@@ -86,7 +92,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                       
                                 /// teamsCollectionView.collectionViewLayout = teamCell_layout
                                upcommingcollection.collectionViewLayout = layoutupgrade
-                   
+                 
                 }
                 
                 
@@ -106,7 +112,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         if( resultView.count > 0){
         print(resultView[1].idEvent , "mmmmmmmmmmmmmmmmmmmariam")
             var count = resultView.count ?? 0
-                                 for i in stride(from: 0, to: count-1 , by: 1){
+                        for i in stride(from: 0, to: count-1 , by: 1){
                                        print(resultView[i].dateEvent ,"mmmmmmmmmm")
                                    var cc = compareDate(eventDate:resultView[i].dateEvent ?? "")
                                   print(cc , "mmmmmmmmmmmmmmmmmm")
@@ -119,15 +125,8 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                   if(upcommingEventResult.count != 0){
                       
                       print(upcommingEventResult[1].idEvent , "mmmmmmmmmmmmghaa")
-                      
                   }
         }
-       
-      
-        
-        
-        
-        
           resultViewTeam = presenterTeam?.resultT.map({(item) -> [String] in
                    print("hag")
                   // print(item.strSport)
@@ -158,19 +157,24 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
            else{
                return 2}
        }
-       
+    @objc func addToFavorite(sender  :UIButton){
+        
+        print("btnFav")
+        core = LocalDataModel()
+    
+        core?.Add(leagueInput:l!)
+        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    }
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        btnFavorite.tag = indexPath.row
+        btnFavorite.addTarget(self, action: #selector(addToFavorite(sender:)), for: .touchUpInside)
            if (collectionView == self.mycollection){
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailcell", for: indexPath) as! MyCustomTeamCollectionViewCell
                 let url=URL(string: teamSelect[indexPath.row].strTeamBadge ?? "https://pngimage.net/wp-content/uploads/2018/05/courses-png-6.png")
                            
             let res=ImageResource(downloadURL: url!)
                    cell.myImage.kf.setImage(with: res, placeholder: UIImage(named: "flower1.jpg"))
-                // cell.myimg.kf.setImage(with: res)
-            //cell.s(with: images[indexPath.row])
-        
-            
-              // cell.myImage =
+     
                return cell
            }
            else if (collectionView == self.upcommingcollection){

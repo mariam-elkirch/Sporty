@@ -90,6 +90,7 @@ import Kingfisher
                 //Now simply set the title property of vc
                // vc.strSportName = legueSelect[indexPath.row].strSport
                // vc.strCountery = legueSelect[indexPath.row].strCountry
+                vc.l = legueSelect[indexPath.row]
                 vc.leagueNameForView = legueSelect[indexPath.row].strLeague
                 vc.leagueEventName = legueSelect[indexPath.row].idLeague
              //   vc.strSportLe =  legueSelect[indexPath.row].strLeague
