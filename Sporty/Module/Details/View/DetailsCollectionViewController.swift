@@ -51,42 +51,16 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                      upcommingcollection.delegate=self
                      upcommingcollection.dataSource = self
           print("after sourceviewmmmmmmmmmmmmmmmmmmm")
-        presenter.getItems(idfromViewLeg: "4416")
+        presenter.getItems(idfromViewLeg: "4328")
           print(leagueEventName,"pget itemsrrrrrrrviewmmmmmmmmmmmmmmmmmmm")
         
         presenterTeam?.getItemsTeams(strLeague: leagueNameForView ?? "B" )
         
         
-       latesteventcollection.collectionViewLayout = UICollectionViewFlowLayout()
+      // latesteventcollection.collectionViewLayout = UICollectionViewFlowLayout()
 
-              //
-            /*  if let layout = latesteventcollection?.collectionViewLayout as? UICollectionViewFlowLayout{
-                       layout.minimumLineSpacing = 0
-                   layout.minimumInteritemSpacing = 0
-                       layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-                     //  let size = CGSize(width:(mycollectionsport!.bounds.width-165)/2, height: 220)
-                  // let size = CGSize(width : latesteventcollection.frame.width * 0.44999 , height: latesteventcollection.frame.height * 0.249)
-                layout.itemSize =   CGSize(width: latesteventcollection.frame.width, height: latesteventcollection.frame.height)
-                layout.scrollDirection = .vertical
-       
-                 /// teamsCollectionView.collectionViewLayout = teamCell_layout
-                latesteventcollection.collectionViewLayout = layout
-        }*/
-                
-                
-                
-               /* if let layoutupgrade = upcommingcollection?.collectionViewLayout as? UICollectionViewFlowLayout{
-                                      layoutupgrade.minimumLineSpacing = 0
-                                  layoutupgrade.minimumInteritemSpacing = 0
-                                      layoutupgrade.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-                               layoutupgrade.itemSize =   CGSize(width: upcommingcollection.frame.width, height: upcommingcollection.frame.height * 2)
-                              layoutupgrade.scrollDirection = .horizontal
-                      
-                                /// teamsCollectionView.collectionViewLayout = teamCell_layout
-                               upcommingcollection.collectionViewLayout = layoutupgrade
-                   
-                }*/
-                
+           
+        
                 
         
     }
@@ -102,23 +76,16 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
            })*/
         self.resultView = presenter.resultev ?? []
         if( resultView.count > 0){
-        print(resultView[1].idEvent , "mmmmmmmmmmmmmmmmmmmariam")
-            var count = resultView.count ?? 0
-                                 for i in stride(from: 0, to: count-1 , by: 1){
-                                       print(resultView[i].dateEvent ,"mmmmmmmmmm")
-                                   var cc = compareDate(eventDate:resultView[i].dateEvent ?? "")
-                                  print(cc , "mmmmmmmmmmmmmmmmmm")
-                                 if(compareDate(eventDate:resultView[i].dateEvent ?? "") == 3 ){
-                                     print(resultView[i].dateEvent , "mmmmmmmmmmmmmmnside id")
-                                     upcommingEventResult.append((resultView[i]))
-                             //self.tableView.reloadData()
+      
+            var count = resultView.count
+             // print(count ,"mmmmmmmmmm")
+                   for i in stride(from: count - 2, to: count / 2, by: -1){
+                                
+                        upcommingEventResult.append((resultView[i]))
+                             self.upcommingcollection.reloadData()
                                  }
-                                 }
-                  if(upcommingEventResult.count != 0){
-                      
-                      print(upcommingEventResult[1].idEvent , "mmmmmmmmmmmmghaa")
-                      
-                  }
+                                 
+                
         }
        
       
@@ -154,7 +121,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
             return resultView.count
            }
            else{
-               return 2}
+            return upcommingEventResult.count}
        }
        
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -173,15 +140,20 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
            }
            else if (collectionView == self.upcommingcollection){
                 let cellup = upcommingcollection.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! UpCollectionViewCell
-               cellup.uplabel.text = "mmmmmmmmmmmm"
-            cellup.upcommingImg.image = UIImage(named: "flower1.jpg")
-            cellup.dateLabelUpcome.text = "vvvv"
-            cellup.timeUpcomeLabel.text = "mmmm"
+           
+             cellup.uplabel.text = upcommingEventResult[indexPath.row].strEvent
+            let url=URL(string: upcommingEventResult[indexPath.row].strThumb ?? "https://pngimage.net/wp-content/uploads/2018/05/courses-png-6.png")
+                                                 
+            let res=ImageResource(downloadURL: url!)
+            cellup.upcommingImg.kf.setImage(with: res, placeholder: UIImage(named: "flower1.jpg"))
+              
+            cellup.dateLabelUpcome.text = upcommingEventResult[indexPath.row].dateEvent
+                cellup.timeUpcomeLabel.text = upcommingEventResult[indexPath.row].strTime
                return cellup
            }
            else {//collectionView == self.latesteventcollection{
                let celllat = latesteventcollection.dequeueReusableCell(withReuseIdentifier: "cell3", for: indexPath) as! LatestEventsCollectionViewCell
-            celllat.backgroundColor = .cyan
+          
             celllat.latestlabel.text =  resultView[indexPath.row].strHomeTeam
             
             
@@ -219,15 +191,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         }
         return comparedValue
     }
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-                    if let cell = sender as? UICollectionViewCell,
-                        
-                       let indexPath = mycollection.indexPath(for: cell) {
-                        let vc = segue.destination as! TeamDetailsViewController
-                        
-                        //Now simply set the title property of
-    vc.strTeamImage = teamSelect[indexPath.row].strTeamBadge
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
                 if let cell = sender as? UICollectionViewCell,
@@ -246,9 +210,9 @@ vc.strTeamImage = teamSelect[indexPath.row].strTeamBadge
                 }
 
 }
-}
 
 }
+
 extension DetailsCollectionViewController :  UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
            
@@ -261,7 +225,7 @@ extension DetailsCollectionViewController :  UICollectionViewDelegateFlowLayout 
                returnedSize =  CGSize(width: collectionView.frame.width / 3 , height: collectionView.frame.width / 3)
            }
            if (collectionView == upcommingcollection){
-               returnedSize = CGSize(width: collectionView.frame.width / 1.0 , height: collectionView.frame.width / 2.0)
+               returnedSize = CGSize(width: collectionView.frame.width  , height: collectionView.frame.width )
            }
            // return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.width)
            return returnedSize
@@ -272,19 +236,8 @@ extension DetailsCollectionViewController :  UICollectionViewDelegateFlowLayout 
     }
     
   
-           }
-           if (collectionView == mycollection){
-               returnedSize =  CGSize(width: collectionView.frame.width / 3 , height: collectionView.frame.width / 3)
-           }
-           if (collectionView == upcommingcollection){
-               returnedSize = CGSize(width: collectionView.frame.width / 1.0 , height: collectionView.frame.width / 2.0)
-           }
-           // return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.width)
-           return returnedSize
-           
-       }
    
         
-    }
+    
     
   

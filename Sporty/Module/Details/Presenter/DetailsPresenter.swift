@@ -21,7 +21,7 @@ import Foundation
         func getItems(idfromViewLeg : String){
             
           network.eventsResult( myidLeague: idfromViewLeg)
-            {[weak self] (result) in
+            {[weak self] (result , Error) in
            // print(myidLeag ,"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmpp")
             print(" League presenter")
             
