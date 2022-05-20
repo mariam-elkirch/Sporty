@@ -194,12 +194,12 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		0CCFDD602836FF6E00E1AB50 /* New Group */ = {
+		0CCFDD602836FF6E00E1AB50 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				0CCFDD612836FF9300E1AB50 /* LocalDataModel.swift */,
 			);
-			path = "New Group";
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		AC0BC2F1282D753E0068C875 /* Module */ = {
@@ -269,7 +269,7 @@
 		AC7654A3282BFD1400486A5A /* Sporty */ = {
 			isa = PBXGroup;
 			children = (
-				0CCFDD602836FF6E00E1AB50 /* New Group */,
+				0CCFDD602836FF6E00E1AB50 /* CoreData */,
 				AC0BC2F4282D75870068C875 /* Services */,
 				AC0BC2F3282D75790068C875 /* Model */,
 				AC0BC2F2282D756D0068C875 /* View */,
