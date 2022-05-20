@@ -24,6 +24,7 @@
 		AC0BC2F6282D75E10068C875 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0BC2F5282D75E10068C875 /* Sport.swift */; };
 		AC0BC2F8282D75F20068C875 /* SportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0BC2F7282D75F20068C875 /* SportModel.swift */; };
 		AC0BC2FA282D78ED0068C875 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0BC2F9282D78ED0068C875 /* Service.swift */; };
+		AC1DDEAA28382F610016167C /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1DDEA928382F610016167C /* FavouriteViewController.swift */; };
 		AC7654A5282BFD1400486A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7654A4282BFD1400486A5A /* AppDelegate.swift */; };
 		AC7654A7282BFD1400486A5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7654A6282BFD1400486A5A /* SceneDelegate.swift */; };
 		AC7654A9282BFD1400486A5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7654A8282BFD1400486A5A /* ViewController.swift */; };
@@ -81,6 +82,7 @@
 		AC0BC2F5282D75E10068C875 /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
 		AC0BC2F7282D75F20068C875 /* SportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportModel.swift; sourceTree = "<group>"; };
 		AC0BC2F9282D78ED0068C875 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		AC1DDEA928382F610016167C /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		AC7654A1282BFD1400486A5A /* Sporty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sporty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7654A4282BFD1400486A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC7654A6282BFD1400486A5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			children = (
 				AC7654A8282BFD1400486A5A /* ViewController.swift */,
 				ACB29E97282EA2530029EE9E /* SportCollectionViewCell.swift */,
+				AC1DDEA928382F610016167C /* FavouriteViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				0CCCDDB12831AA8100176331 /* DetailsCollectionViewController.swift in Sources */,
 				0C65EF8F28305EDA006002CA /* TeamModel.swift in Sources */,
 				AC0BC2F8282D75F20068C875 /* SportModel.swift in Sources */,
+				AC1DDEAA28382F610016167C /* FavouriteViewController.swift in Sources */,
 				AC0BC2FA282D78ED0068C875 /* Service.swift in Sources */,
 				ACAB3F2F2832DCD10057D643 /* LatestEventsCollectionViewCell.swift in Sources */,
 				0C65EF8B2830090D006002CA /* YoutubeModel.swift in Sources */,
