@@ -15,7 +15,7 @@ protocol DetailLeagueProtocol : AnyObject{
 }
 class DetailsCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,  DetailLeagueProtocol {
     
-  //  @IBOutlet weak var btnFavorite: UIBarButtonItem!
+    @IBOutlet weak var LeagueFavBtn: UIButton!
     var presenter : DetailsLeaguePresenter!
     var resultView: [Event] = []
     var upcommingEventSelect: [Event] = []
@@ -41,11 +41,13 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
   //  var button : UIButton? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      //  LeagueFavBtn?.tag = indexPath.row
+               
+               LeagueFavBtn.addTarget(self, action: #selector(addToFavorite(sender:)), for: .touchUpInside)
 //         button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
 //        view.addSubview(button!)
 //
-//        button?.addTarget(self, action: #selector(addToFavorite(sender:)), for: .touchUpInside)
+       //button?.addTarget(self, action: #selector(addToFavorite(sender:)), for: .touchUpInside)
         
 //        let layout = UICollectionViewFlowLayout()
 //        layout.scrollDirection = .horizontal
@@ -72,11 +74,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         
         
     }
-    private func configureButton(){
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .add, target: self, action: nil
-        )
-    }
+    
     func stopAnimatingev() {
            
        }
@@ -102,9 +100,6 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         }
        
       
-        
-        
-        
         
           resultViewTeam = presenterTeam?.resultT.map({(item) -> [String] in
                    print("hag")
@@ -136,7 +131,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
            else{
             return upcommingEventResult.count}
        }
-    @objc func addToFavorite(sender  :UIButton){
+    @objc func addToFavorite(sender :UIButton){
         
         print("btnFav")
         core = LocalDataModel()
@@ -145,9 +140,9 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        button?.tag = indexPath.row
         
-//        btnFavorite.addTarget(self, action: #selector(addToFavorite(sender:)), for: .touchUpInside)
+       
+        
            if (collectionView == self.mycollection){
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailcell", for: indexPath) as! MyCustomTeamCollectionViewCell
                 let url=URL(string: teamSelect[indexPath.row].strTeamBadge ?? "https://pngimage.net/wp-content/uploads/2018/05/courses-png-6.png")
