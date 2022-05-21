@@ -9,13 +9,15 @@
 import UIKit
 
 class FavouriteViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource  {
-    
-
+     var presenter : FavouritePresenter!
+     var favouriteResult: [League] = []
     @IBOutlet weak var favTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.favTable.delegate = self
         self.favTable.dataSource = self
+        
+        favouriteResult = presenter.fetchLeaguesFromCoreData()
         // Do any additional setup after loading the view.
     }
     

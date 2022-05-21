@@ -38,4 +38,37 @@ class LocalDataModel {
        print ("can't insert")
         }
     }
+   /* func fetchLeagues() -> [League]{
+/*let request = NSFetchRequest<LeagueDB>(entityName: "LeagueDB")
+        var  result : [LeagueDB] = []
+        do{
+            result = try managedContext.fetch(request)
+        }catch let error{
+            print(error.localizedDescription)
+        }
+        return result*/
+       /*  var  result : [League] = []
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LeagueE")
+                           do{
+                            let returnedLeagues = try viewContext?.fetch(fetchRequest)
+                               
+                            print(returnedLeagues?.count, "fetchhhh")
+                            for i in stride(from: 0, to: returnedLeagues?.count ?? 0, by: 1){
+                                
+                                var item = League(from: <#Decoder#>)
+                                
+                            }
+                                }catch let error{
+            print(error.localizedDescription)
+        }
+        return result
+        */
+    }
+    
+    */
+    
+    
+    
+    
+    
 }

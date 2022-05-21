@@ -28,6 +28,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
     var strCountery : String? = ""
     var leagueEventId: String? = ""
    var teamSelect:Array<Team>=[]
+    var myfav : FavourieLeague?
     var upcommingEventResult: [Event] = []
        var presenterTeam : TeamPresenter?
  var resultViewTeam :[String]? = []
@@ -52,7 +53,13 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
 //        let layout = UICollectionViewFlowLayout()
 //        layout.scrollDirection = .horizontal
 //        self.mycollection.collectionViewLayout = layout
-             presenter = DetailsLeaguePresenter(NWService: NetworkServic())
+       
+        let favid = l?.idLeague ?? ""
+        let favname = l?.strLeague ?? ""
+        let favimg = l?.strBadge   ?? ""
+        let favyoutube = l?.strYoutube ?? ""
+        myfav = FavourieLeague(id: favid, name: favname, img: favimg, youtube: favyoutube)
+        presenter = DetailsLeaguePresenter(NWService: NetworkServic())
         presenter.attachView(view: self)
           presenterTeam = TeamPresenter(NWService: NetworkServic())
         presenterTeam?.attachView(view: self)
