@@ -58,7 +58,7 @@ import Kingfisher
             cell.myLabel.adjustsFontSizeToFitWidth = true
             //cell.myLabel.minimumScaleFactor = 0.4
             cell.myLabel.text = legueSelect[indexPath.row].strLeague
-            print(legueSelect[indexPath.row].strLeague , "haaaaggggg")
+            
     let url=URL(string:self.legueSelect[indexPath.row].strBadge ??
             "https://www.thesportsdb.com//images//media//league//badge//6my1u31578828133.png" )
             let res=ImageResource(downloadURL:url!)

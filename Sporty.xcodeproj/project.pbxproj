@@ -45,6 +45,7 @@
 		ACB29E96282E79230029EE9E /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB29E95282E79230029EE9E /* HomePresenter.swift */; };
 		ACB29E98282EA2530029EE9E /* SportCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB29E97282EA2530029EE9E /* SportCollectionViewCell.swift */; };
 		ACDA0E07283427A6000014F5 /* AlamofireSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA0E06283427A6000014F5 /* AlamofireSource.swift */; };
+		ACF3B11D2838B9420050D250 /* FavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3B11C2838B9420050D250 /* FavTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		ACB29E95282E79230029EE9E /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		ACB29E97282EA2530029EE9E /* SportCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportCollectionViewCell.swift; sourceTree = "<group>"; };
 		ACDA0E06283427A6000014F5 /* AlamofireSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireSource.swift; sourceTree = "<group>"; };
+		ACF3B11C2838B9420050D250 /* FavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +326,7 @@
 				AC7654A8282BFD1400486A5A /* ViewController.swift */,
 				ACB29E97282EA2530029EE9E /* SportCollectionViewCell.swift */,
 				AC1DDEA928382F610016167C /* FavouriteViewController.swift */,
+				ACF3B11C2838B9420050D250 /* FavTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				ACAB3F2A2832D3CF0057D643 /* Event.swift in Sources */,
 				AC7654A7282BFD1400486A5A /* SceneDelegate.swift in Sources */,
 				0C22AEC328343DC000D1928A /* TeamPresenter.swift in Sources */,
+				ACF3B11D2838B9420050D250 /* FavTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
