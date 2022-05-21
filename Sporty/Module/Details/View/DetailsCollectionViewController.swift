@@ -26,7 +26,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        var strSportName : String? = ""
     var leagueNameForView : String? = ""
     var strCountery : String? = ""
-    var leagueEventName: String? = ""
+    var leagueEventId: String? = ""
    var teamSelect:Array<Team>=[]
     var upcommingEventResult: [Event] = []
        var presenterTeam : TeamPresenter?
@@ -63,9 +63,9 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                      latesteventcollection.dataSource=self
                      upcommingcollection.delegate=self
                      upcommingcollection.dataSource = self
-          print("after sourceviewmmmmmmmmmmmmmmmmmmm")
-        presenter.getItems(idfromViewLeg: "4617")
-          print(leagueEventName,"pget itemsrrrrrrrviewmmmmmmmmmmmmmmmmmmm")
+          print("after sourceviewmmmmmmmm1mmmmmmmmmmm")
+        presenter.getItems(idfromViewLeg: leagueEventId!)
+          print(leagueEventId,"pget itemsrrrrrrrviewmmmmmmmmmmmmmmmmmmm")
         
         presenterTeam?.getItemsTeams(strLeague: leagueNameForView ?? "B" )
         
@@ -153,11 +153,12 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                 let cellup = upcommingcollection.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! UpCollectionViewCell
            
              cellup.uplabel.text = upcommingEventResult[indexPath.row].strEvent
+            
             let url=URL(string: upcommingEventResult[indexPath.row].strThumb ?? "https://pngimage.net/wp-content/uploads/2018/05/courses-png-6.png")
-                                                 
+           if(url != nil){
             let res=ImageResource(downloadURL: url!)
             cellup.upcommingImg.kf.setImage(with: res, placeholder: UIImage(named: "flower1.jpg"))
-              
+            }
             cellup.dateLabelUpcome.text = upcommingEventResult[indexPath.row].dateEvent
                 cellup.timeUpcomeLabel.text = upcommingEventResult[indexPath.row].strTime
                return cellup
@@ -169,9 +170,10 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
             
             
             let url=URL(string: resultView[indexPath.row].strThumb ?? "https://pngimage.net/wp-content/uploads/2018/05/courses-png-6.png")
-                                      
+                     if(url != nil){
                        let res=ImageResource(downloadURL: url!)
            celllat.imgname.kf.setImage(with: res, placeholder: UIImage(named: "flower1.jpg"))
+            }
             //celllat.imgname.image = UIImage(named: "flower1.jpg")
             celllat.dateLabel.text = resultView[indexPath.row].dateEvent
             celllat.teamname.text = resultView[indexPath.row].strAwayTeam

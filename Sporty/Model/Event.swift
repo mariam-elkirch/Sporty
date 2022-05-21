@@ -8,32 +8,15 @@
 
 import Foundation
 class Event: Codable {
-   /* var dateEvent: String
-    var dateEventLocal: String
-    var idAPIfootball: String
-    var idAwayTeam: String
-    var idEvent: String
-    var idHomeTeam: String
-    var idLeague: String
-    var intHomeScore: String
-    var intRound: String
-    var strAwayTeam: String
-    var strHomeTeam: String
-    var strEvent: String
-    var strEventAlternate: String
-    var strFilename: String
-    var strThumb: String
-    var strTime: String
-    var intAwayScore: String*/
-     
-     var strTime: String
-     var idLeague: String
-     var strEvent: String
-     var intHomeScore: String
-      var intAwayScore: String
-    var strAwayTeam: String
-      var strThumb: String
-    var strHomeTeam: String
-    var dateEvent: String
-    var idEvent: String
+   
+     var strTime: String?
+     var idLeague: String?
+     var strEvent: String?
+     var intHomeScore: String?
+      var intAwayScore: String?
+    var strAwayTeam: String?
+      var strThumb: String?
+    var strHomeTeam: String?
+    var dateEvent: String?
+    var idEvent: String?
 }

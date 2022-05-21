@@ -92,7 +92,7 @@ import Kingfisher
                // vc.strCountery = legueSelect[indexPath.row].strCountry
                 vc.l = legueSelect[indexPath.row]
                 vc.leagueNameForView = legueSelect[indexPath.row].strLeague
-                vc.leagueEventName = legueSelect[indexPath.row].idLeague
+                vc.leagueEventId = legueSelect[indexPath.row].idLeague
              //   vc.strSportLe =  legueSelect[indexPath.row].strLeague
               //  vc.
                           //     vc.sport = legueSelect[indexPath.row].strLeague
