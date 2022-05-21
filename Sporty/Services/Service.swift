@@ -114,7 +114,7 @@ class NetworkServic : NetworkServiceProtocol {
 
              do{
             let result = try JSONDecoder().decode(Events.self, from: data)
-            // print("from Network latest : \(String(describing: result.events?.count))")
+             print("from Network latest : \(String(describing: result.events.count))")
              complitionHandler(result, nil)
             }
            catch{}

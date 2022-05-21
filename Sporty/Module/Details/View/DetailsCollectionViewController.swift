@@ -64,7 +64,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                      upcommingcollection.delegate=self
                      upcommingcollection.dataSource = self
           print("after sourceviewmmmmmmmmmmmmmmmmmmm")
-        presenter.getItems(idfromViewLeg: "4328")
+        presenter.getItems(idfromViewLeg: "4617")
           print(leagueEventName,"pget itemsrrrrrrrviewmmmmmmmmmmmmmmmmmmm")
         
         presenterTeam?.getItemsTeams(strLeague: leagueNameForView ?? "B" )
@@ -81,10 +81,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        
        func renderDetailCollectionViewev() {
         print("rendermmmmmmmmmmmmm")
-          /* resultView = presenter.resultev?.map({ (myitem) -> String in
-            print(myitem.idEvent, "hiiiiiiiiiiiiiiiiiiiiiiiiii")
-            return myitem.idEvent ?? ""
-           })*/
+          //   presenter.getItems(idfromViewLeg: "4416")
         self.resultView = presenter.resultev ?? []
         if( resultView.count > 0){
       
@@ -98,7 +95,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                                  
                 
         }
-       
+    
       
         
           resultViewTeam = presenterTeam?.resultT.map({(item) -> [String] in
@@ -107,7 +104,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
             print( item[1].strTeamBadge , "hagerrrrrrrrrrr")
 
             self.teamSelect.append(contentsOf: item)
-            presenterTeam?.getItemsTeams(strLeague: leagueNameForView ?? "B")
+           // presenterTeam?.getItemsTeams(strLeague: leagueNameForView ?? "B")
             self.mycollection.reloadData()
 
                  //  print(sportSelect[1].strSport ?? "")
