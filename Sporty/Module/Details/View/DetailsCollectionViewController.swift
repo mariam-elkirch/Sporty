@@ -131,10 +131,10 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
     @objc func addToFavorite(sender :UIButton){
         
         print("btnFav")
-        core = LocalDataModel()
-    
-        core?.Add(leagueInput:l!)
+        if(l != nil){
+        presenter.insertData(leg: l!)
         sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    }
     }
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         

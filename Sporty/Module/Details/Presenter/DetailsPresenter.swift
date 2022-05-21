@@ -10,7 +10,7 @@ import Foundation
   class DetailsLeaguePresenter {
     //var NWService : MovieService! // service
        var resultev : [Event]? // model
-
+    var dataModel : LocalDataModel?
        weak var view : DetailLeagueProtocol? // DI
         init(NWService : NetworkServiceProtocol){
            }
@@ -40,7 +40,11 @@ import Foundation
     
     }
     
-    
+    func insertData(leg:League){
+        dataModel = LocalDataModel()
+        dataModel?.Add(leagueInput: leg)
+        
+    }
     
     
 }
