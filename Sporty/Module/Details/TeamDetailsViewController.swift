@@ -21,7 +21,7 @@ class TeamDetailsViewController: UIViewController {
     
     @IBOutlet weak var stadiumLocation: UILabel!
     
-    @IBOutlet weak var Details: UILabel!
+    @IBOutlet weak var detailsLabel: UILabel!
     var strTeamImage : String?
         var year : String?
          var capacity: String?
@@ -41,7 +41,7 @@ class TeamDetailsViewController: UIViewController {
         staduim.text = staduimName
         stadiumCpacity.text = capacity
         stadiumLocation.text = staduimLoc
-        Details.text = description
+        detailsLabel.text = desc
         // Do any additional setup after loading the view.
     }
     
