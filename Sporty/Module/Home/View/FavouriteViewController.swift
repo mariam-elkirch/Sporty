@@ -30,7 +30,7 @@ class FavouriteViewController: UIViewController ,UITableViewDelegate,UITableView
         cellFav.labelFav.adjustsFontSizeToFitWidth = true
         cellFav.labelFav.minimumScaleFactor = 0.4
         cellFav.labelFav.text = "mariam"
-        cellFav.imgFav.image = UIImage(named: "flower1.jpg")
+        cellFav.imgFav.image = UIImage(named: "imgball")
         return cellFav
 
     }
