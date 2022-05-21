@@ -28,9 +28,9 @@ class FavouriteViewController: UIViewController ,UITableViewDelegate,UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
           let cellFav = tableView.dequeueReusableCell(withIdentifier: "cellFav", for: indexPath) as! FavTableViewCell
         cellFav.labelFav.adjustsFontSizeToFitWidth = true
-        //cell.myLabel.minimumScaleFactor = 0.4
+        cellFav.labelFav.minimumScaleFactor = 0.4
         cellFav.labelFav.text = "mariam"
-        
+        cellFav.imgFav.image = UIImage(named: "flower1.jpg")
         return cellFav
 
     }
