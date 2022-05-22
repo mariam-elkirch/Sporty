@@ -29,12 +29,14 @@ class FavouriteViewController: UIViewController ,UITableViewDelegate,UITableView
         presenter.fetchLeaguesFromCoreData()
         favouriteResult = presenter.resultLeagueCoreData
         print(favouriteResult[0].idLeague,"fetchhh")
+        favTable.reloadData()
         //favouriteResult = presenter.fetchLeaguesFromCoreData()
         // Do any additional setup after loading the view.
     }
     override func viewWillDisappear(_ animated: Bool) {
         presenter.fetchLeaguesFromCoreData()
        favouriteResult = presenter.resultLeagueCoreData
+        favTable.reloadData()
         print(favouriteResult.count , "fetchhh")
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,6 +72,16 @@ class FavouriteViewController: UIViewController ,UITableViewDelegate,UITableView
         return cellFav
 
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+          if editingStyle == .delete {
+                print("Deletedtableview successfullyyyyyy")
+            presenter.deleteLeagueFromCoreData(myidLeague: favouriteResult[indexPath.row].idLeague)
+               favouriteResult.remove(at: indexPath.row)
+                tableView.reloadData()
+
+              }
+              }
+  
      @objc
         func openYoutube(sender : UIButton ){
             if let url = URL(string : "https://\(urlSelected ?? "https://www.google.com")"){
@@ -93,14 +105,29 @@ class FavouriteViewController: UIViewController ,UITableViewDelegate,UITableView
          // favouriteResult = presenter.resultLeagueCoreData
                  print(favouriteResult.count , "fetchhh")
       }
-    /*
+    
     // MARK: - Navigation
-
+ override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    if (favouriteResult[1].idLeague == "")  {
+         // your code here, like badParameters  = false, e.t.c
+         return true
+    }
+    return false
+}
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
+        
+        if let cell = sender as? UITableViewCell,
+      
+                          let indexPath = favTable.indexPath(for: cell) {
+           //myCollectionViewTeams
+                           let vc = segue.destination as! DetailsCollectionViewController //Cast with your
+                           vc.l = favouriteResult[indexPath.row]
+                           vc.leagueNameForView = favouriteResult[indexPath.row].strLeague
+            vc.leagueEventId = favouriteResult[indexPath.row].idLeague
         // Pass the selected object to the new view controller.
-    }
-    */
+            }
+   
+           }
 
 }

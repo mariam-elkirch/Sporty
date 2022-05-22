@@ -294,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUw-bt-Ulu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2794.202898550725" y="168.75"/>
+            <point key="canvasLocation" x="1567" y="117"/>
         </scene>
         <!--Team Details View Controller-->
         <scene sceneID="xPT-7S-Kaa">
@@ -486,6 +486,7 @@
                                             <outlet property="btnFavYou" destination="kVp-ab-nBU" id="u70-sO-29q"/>
                                             <outlet property="imgFav" destination="Ymr-yx-Peh" id="CQx-pi-RjH"/>
                                             <outlet property="labelFav" destination="oVi-kN-c2f" id="5cG-9d-Pxc"/>
+                                            <segue destination="1jR-mj-3dn" kind="show" id="hy8-JB-jCm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -620,6 +621,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="hy8-JB-jCm"/>
         <segue reference="cYf-MY-b8F"/>
     </inferredMetricsTieBreakers>
     <resources>

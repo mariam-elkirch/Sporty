@@ -15,7 +15,7 @@ var strYoutube : String = ""
 var strBadge : String = ""
 
     init(id:String,name:String,img :String,youtube :String ) {
-           self.idLeague = name
+           self.idLeague = id
               self.strLeague = name
               self.strBadge = img
            self.strYoutube = youtube

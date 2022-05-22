@@ -20,15 +20,15 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
     var resultView: [Event] = []
     var upcommingEventSelect: [Event] = []
     var core : LocalDataModel?
-          var leg : League?
+         // var leg : League?
          // Modle for View
-    var l : League?
+    var l : FavourieLeague?
        var strSportName : String? = ""
     var leagueNameForView : String? = ""
     var strCountery : String? = ""
     var leagueEventId: String? = ""
    var teamSelect:Array<Team>=[]
-    var myfav : FavourieLeague?
+   // var myfav : FavourieLeague?
     var upcommingEventResult: [Event] = []
        var presenterTeam : TeamPresenter?
  var resultViewTeam :[String]? = []
@@ -43,7 +43,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
       //  LeagueFavBtn?.tag = indexPath.row
-               
+        print(l?.idLeague,"favourite")
                LeagueFavBtn.addTarget(self, action: #selector(addToFavorite(sender:)), for: .touchUpInside)
 //         button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
 //        view.addSubview(button!)
@@ -54,11 +54,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
 //        layout.scrollDirection = .horizontal
 //        self.mycollection.collectionViewLayout = layout
        
-        let favid = l?.idLeague ?? ""
-        let favname = l?.strLeague ?? ""
-        let favimg = l?.strBadge   ?? ""
-        let favyoutube = l?.strYoutube ?? ""
-        myfav = FavourieLeague(id: favid, name: favname, img: favimg, youtube: favyoutube)
+    
         presenter = DetailsLeaguePresenter(NWService: NetworkServic())
         presenter.attachView(view: self)
           presenterTeam = TeamPresenter(NWService: NetworkServic())
@@ -111,7 +107,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
             print( item[1].strTeamBadge , "hagerrrrrrrrrrr")
 
             self.teamSelect.append(contentsOf: item)
-           // presenterTeam?.getItemsTeams(strLeague: leagueNameForView ?? "B")
+           // presenterTeam?.getItemsTeams(strLeague: leagueNameF1111111orView ?? "B")
             self.mycollection.reloadData()
 
                  //  print(sportSelect[1].strSport ?? "")
@@ -139,7 +135,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         
         print("btnFav")
         if(l != nil){
-        presenter.insertData(leg: myfav!)
+        presenter.insertData(leg: l!)
         sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
     }

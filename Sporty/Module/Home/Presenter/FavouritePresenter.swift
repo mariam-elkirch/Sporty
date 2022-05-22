@@ -28,6 +28,11 @@ import Foundation
         //self.view.displayFavouriteLeagues()
            return resultLeagueCoreData
         }
+    func deleteLeagueFromCoreData(myidLeague : String){
+           
+        coreData?.deleteLeague(withID: myidLeague)
+            
+        }
     }
 
 

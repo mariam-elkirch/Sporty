@@ -63,7 +63,27 @@ print("fetchhhhMethod")
         
     }
     
-    
+  func deleteLeague(withID: String) {
+    print("delete",withID)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LeagueE")
+        fetchRequest.predicate = NSPredicate.init(format: "id =='\(withID)'")
+         do{
+                let result = try viewContext?.fetch(fetchRequest)
+                                      
+                                 
+                for object in result! {
+                       print("deletedsucsseflyyyyy")
+                    viewContext!.delete(object)
+                   
+                                                
+                                  
+                }
+                                    }catch let error{
+                   print(error.localizedDescription)
+      
+    }
+     appdelegate!.saveContext()
+    }
     
     
     

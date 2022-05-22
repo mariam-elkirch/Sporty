@@ -90,7 +90,13 @@ import Kingfisher
                 //Now simply set the title property of vc
                // vc.strSportName = legueSelect[indexPath.row].strSport
                // vc.strCountery = legueSelect[indexPath.row].strCountry
-                vc.l = legueSelect[indexPath.row]
+               
+                let favid = legueSelect[indexPath.row].idLeague
+                let favname = legueSelect[indexPath.row].strLeague
+                let favimg = legueSelect[indexPath.row].strBadge
+                let favyoutube = legueSelect[indexPath.row].strYoutube
+                var  myfav = FavourieLeague(id: favid, name: favname, img: favimg, youtube: favyoutube)
+                vc.l = myfav
                 vc.leagueNameForView = legueSelect[indexPath.row].strLeague
                 vc.leagueEventId = legueSelect[indexPath.row].idLeague
              //   vc.strSportLe =  legueSelect[indexPath.row].strLeague
