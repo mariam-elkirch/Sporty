@@ -33,7 +33,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
               indicator.center = self.view.center
                     self.view.addSubview(indicator)
                     indicator.startAnimating()
-                    
+           // activeViewController.tabBarController.selectedIndex = 1
                     presenter = HomePresenter(NWService: NetworkServic())
         presenter.attachView(view: self)
                     
@@ -41,7 +41,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         mycollectionsport.dataSource = self
         mycollectionsport.delegate = self
       mycollectionsport.collectionViewLayout = UICollectionViewFlowLayout()
-
+       
        //
        if let layout = mycollectionsport?.collectionViewLayout as? UICollectionViewFlowLayout{
                 layout.minimumLineSpacing = 0
@@ -113,7 +113,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
 }
     
   
-extension ViewController : HomeProtocol {
+extension ViewController : HomeProtocol  {
     func stopAnimating() {
         indicator.stopAnimating()
         // I have the result
@@ -121,15 +121,17 @@ extension ViewController : HomeProtocol {
     }
     func renderCollectionView(){
         resultView = presenter.result.map({ (item) -> String in
-            print("kak")
-           // print(item.strSport)
+           
+           
              self.sportSelect.append(item)
           //  print(sportSelect[1].strSport ?? "")
             return item.strSport ?? ""
         })
         self.mycollectionsport.reloadData()
         //self.tableView.reloadData()
+        print(resultView.count , "sportttttttt")
     }
 }
+
 
 

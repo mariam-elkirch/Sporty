@@ -115,11 +115,11 @@ class FavouriteViewController: UIViewController ,UITableViewDelegate,UITableView
  
     if (Connectivity.isConnectedToInternet()) {
         isInternetConnect = true
-        print("Yes! internet is available.")
+        print("Yes internet is available.")
         // do some tasks..
     }else{
         isInternetConnect = false
-         print("No! internet is available.")
+         print("No internet ")
            let actionsheet = UIAlertController(title: "Can not load leage details data", message: " check your internet connection ", preferredStyle: .actionSheet)
             
             

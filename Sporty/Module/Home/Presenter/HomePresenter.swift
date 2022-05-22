@@ -14,11 +14,12 @@ import Foundation
        weak var view : HomeProtocol!  // DI
         init(NWService : NetworkServiceProtocol){
            }
+          let network = NetworkServic()
     func attachView(view: HomeProtocol){
         self.view = view
     }
     func getItems(){
-        NetworkServic.sportResult{[weak self] (result) in
+        network.sportResult{[weak self] (result) in
             print("presenter")
            // print(result?.sports?[2].strSport ?? "")
            // print(result?.items[0].title ?? "")

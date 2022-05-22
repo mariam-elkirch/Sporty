@@ -78,6 +78,12 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         
     }
     
+    
+    
+    @IBAction func backBtn(_ sender: UIButton) {
+         dismiss(animated: true, completion: nil)
+    }
+    
     func stopAnimatingev() {
            
        }
@@ -88,13 +94,21 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         self.resultView = presenter.resultev ?? []
         if( resultView.count > 0){
       
-            var count = resultView.count
-             // print(count ,"mmmmmmmmmm")
-                   for i in stride(from: count - 2, to: count / 2, by: -1){
-                                
-                        upcommingEventResult.append((resultView[i]))
-                             self.upcommingcollection.reloadData()
-                                 }
+            var count = resultView.count ?? 0
+                       for i in stride(from: 0, to: count-1 , by: 1){
+                        print(resultView[i].dateEvent , "mmmmmmmmm")
+                       if(compareDate(eventDate:resultView[i].dateEvent ?? "") == 3 ){
+                           print(resultView[i].dateEvent , "mmmmmmmmmmminside id")
+                           upcommingEventResult.append((resultView[i]))
+                   //self.tableView.reloadData()
+                         self.upcommingcollection.reloadData()
+                       }
+                       }
+        if(upcommingEventResult.count != 0){
+            
+            print(upcommingEventResult[1].idEvent , "mmmmmariam")
+            
+        }
                                  
                 
         }
@@ -231,17 +245,20 @@ vc.strTeamImage = teamSelect[indexPath.row].strTeamBadge
 
 extension DetailsCollectionViewController :  UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           
+           let screenSize: CGRect = UIScreen.main.bounds
+         let screenWidth = screenSize.width
+         let screenHeight = screenSize.height
            var returnedSize = CGSize()
            
            if (collectionView == latesteventcollection){
-               returnedSize =  CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.width)
+               returnedSize =  CGSize(width: screenWidth, height: screenHeight)
            }
            if (collectionView == mycollection){
                returnedSize =  CGSize(width: collectionView.frame.width / 3 , height: collectionView.frame.width / 3)
            }
            if (collectionView == upcommingcollection){
-               returnedSize = CGSize(width: collectionView.frame.width  , height: collectionView.frame.width )
+               
+               returnedSize = CGSize(width: screenWidth  , height: screenHeight )
            }
            // return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.width)
            return returnedSize

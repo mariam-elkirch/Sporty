@@ -8,7 +8,7 @@
 import Foundation
 import  Alamofire
 protocol NetworkServiceProtocol{
-  static func sportResult(complitionHandler : @escaping (SportsModel?) -> Void)
+ func sportResult(complitionHandler : @escaping (SportsModel?) -> Void)
     static func legsResult(strSport : String , complitionHandler : @escaping (LeagueModel?) -> Void)
  func eventsResult(myidLeague : String , complitionHandler : @escaping (Events?, Error?) -> Void)
 }
@@ -17,7 +17,7 @@ protocol NetworkServiceProtocol{
 class NetworkServic : NetworkServiceProtocol {
    
     
-    static func sportResult(complitionHandler : @escaping (SportsModel?) -> Void){
+    func sportResult(complitionHandler : @escaping (SportsModel?) -> Void){
         Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/all_sports.php")
         .response{(responseData) in
             guard let data = responseData.data else {
