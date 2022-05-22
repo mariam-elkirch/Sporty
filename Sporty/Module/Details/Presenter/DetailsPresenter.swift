@@ -24,7 +24,7 @@ import Foundation
            // print(myidLeag ,"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmpp")
             print(" League presenter")
             
-                print(result?.events[2].idEvent ?? "")
+               // print(result?.events[2].idEvent ?? "")
                 self?.resultev = result?.events
                 
             //self.tableView.reloadData()
@@ -39,7 +39,7 @@ import Foundation
     
     }
     
-    func insertData(leg:League){
+    func insertData(leg:FavourieLeague){
         dataModel = LocalDataModel()
         dataModel?.Add(leagueInput: leg)
         

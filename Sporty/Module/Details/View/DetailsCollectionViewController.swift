@@ -139,7 +139,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         
         print("btnFav")
         if(l != nil){
-        presenter.insertData(leg: l!)
+        presenter.insertData(leg: myfav!)
         sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
     }

@@ -18,7 +18,7 @@ class LocalDataModel {
         viewContext = appdelegate?.persistentContainer.viewContext
     }
     
-    func Add(leagueInput: League){
+    func Add(leagueInput: FavourieLeague){
       print("AddMethod")
         print(leagueInput ,"input")
         let entity = NSEntityDescription.entity(forEntityName: "LeagueE", in: viewContext!
@@ -38,34 +38,32 @@ class LocalDataModel {
        print ("can't insert")
         }
     }
-   /* func fetchLeagues() -> [League]{
-/*let request = NSFetchRequest<LeagueDB>(entityName: "LeagueDB")
-        var  result : [LeagueDB] = []
-        do{
-            result = try managedContext.fetch(request)
-        }catch let error{
-            print(error.localizedDescription)
-        }
-        return result*/
-       /*  var  result : [League] = []
+   func fetchLeagues() -> [FavourieLeague]{
+print("fetchhhhMethod")
+        var  result : [FavourieLeague] = []
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LeagueE")
                            do{
                             let returnedLeagues = try viewContext?.fetch(fetchRequest)
                                
                             print(returnedLeagues?.count, "fetchhhh")
                             for i in stride(from: 0, to: returnedLeagues?.count ?? 0, by: 1){
-                                
-                                var item = League(from: <#Decoder#>)
+                                 
+                                var item = FavourieLeague()
+                                item.idLeague = returnedLeagues?[i].value(forKey : "id") as! String
+                                item.strLeague = returnedLeagues?[i].value(forKey : "strLeague") as! String
+                                item.strBadge = returnedLeagues?[i].value(forKey : "strImage") as! String
+                                item.strYoutube = returnedLeagues?[i].value(forKey : "strYoutube") as! String
+                                result.append(item)
                                 
                             }
                                 }catch let error{
             print(error.localizedDescription)
         }
         return result
-        */
+        
     }
     
-    */
+    
     
     
     
