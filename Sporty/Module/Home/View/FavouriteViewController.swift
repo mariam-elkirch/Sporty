@@ -119,8 +119,16 @@ class FavouriteViewController: UIViewController ,UITableViewDelegate,UITableView
         // do some tasks..
     }else{
         isInternetConnect = false
-               print("No! internet is available.")
-    }
+         print("No! internet is available.")
+           let actionsheet = UIAlertController(title: "Can not load leage details data", message: " check your internet connection ", preferredStyle: .actionSheet)
+            
+            
+            actionsheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            present(actionsheet, animated: true, completion: nil)
+        }
+              
+    
     return isInternetConnect!
 }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
