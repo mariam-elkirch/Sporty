@@ -8,11 +8,14 @@
 
 import UIKit
 import Kingfisher
+import  Network
 protocol FavouriteLeaguesControllerProtocol : AnyObject{
     func displayFavouriteLeagues()
   }
 class FavouriteViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource, FavouriteLeaguesControllerProtocol  {
+  let monitor = NWPathMonitor()
   
+    let queue = DispatchQueue(label: "InternetConnectionMonitor")
     
    //  var dataModel : LocalDataModel?
      var presenter = FavouritePresenter()
@@ -108,11 +111,17 @@ class FavouriteViewController: UIViewController ,UITableViewDelegate,UITableView
     
     // MARK: - Navigation
  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-    if (favouriteResult[1].idLeague == "")  {
-         // your code here, like badParameters  = false, e.t.c
-         return true
+  var  isInternetConnect : Bool?
+ 
+    if (Connectivity.isConnectedToInternet()) {
+        isInternetConnect = true
+        print("Yes! internet is available.")
+        // do some tasks..
+    }else{
+        isInternetConnect = false
+               print("No! internet is available.")
     }
-    return false
+    return isInternetConnect!
 }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

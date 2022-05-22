@@ -25,6 +25,7 @@
 		AC0BC2F8282D75F20068C875 /* SportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0BC2F7282D75F20068C875 /* SportModel.swift */; };
 		AC0BC2FA282D78ED0068C875 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0BC2F9282D78ED0068C875 /* Service.swift */; };
 		AC1DDEAA28382F610016167C /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1DDEA928382F610016167C /* FavouriteViewController.swift */; };
+		AC7313FF283A5C3A0052EB95 /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7313FE283A5C3A0052EB95 /* InternetConnection.swift */; };
 		AC7654A5282BFD1400486A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7654A4282BFD1400486A5A /* AppDelegate.swift */; };
 		AC7654A7282BFD1400486A5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7654A6282BFD1400486A5A /* SceneDelegate.swift */; };
 		AC7654A9282BFD1400486A5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7654A8282BFD1400486A5A /* ViewController.swift */; };
@@ -86,6 +87,7 @@
 		AC0BC2F7282D75F20068C875 /* SportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportModel.swift; sourceTree = "<group>"; };
 		AC0BC2F9282D78ED0068C875 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		AC1DDEA928382F610016167C /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
+		AC7313FE283A5C3A0052EB95 /* InternetConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
 		AC7654A1282BFD1400486A5A /* Sporty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sporty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7654A4282BFD1400486A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC7654A6282BFD1400486A5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				0CD515522838576100DCAB15 /* LocalDataModel.swift */,
 				AC0BC2F9282D78ED0068C875 /* Service.swift */,
 				ACDA0E06283427A6000014F5 /* AlamofireSource.swift */,
+				AC7313FE283A5C3A0052EB95 /* InternetConnection.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				ACAB3F2F2832DCD10057D643 /* LatestEventsCollectionViewCell.swift in Sources */,
 				0C65EF8B2830090D006002CA /* YoutubeModel.swift in Sources */,
 				0C22AEC828347D8400D1928A /* TeamDetailsViewController.swift in Sources */,
+				AC7313FF283A5C3A0052EB95 /* InternetConnection.swift in Sources */,
 				ACB29E96282E79230029EE9E /* HomePresenter.swift in Sources */,
 				0CDE96F5282DCED600F24F34 /* League.swift in Sources */,
 				ACAB3F332832E74D0057D643 /* UpCollectionViewCell.swift in Sources */,
