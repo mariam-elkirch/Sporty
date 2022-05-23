@@ -78,26 +78,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         cell.sportlabel.text = sportSelect[indexPath.row].strSport
                         return cell
       }
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "SecondViewController1") as? ViewControllerTViewController
-//        vc?.sport = sportSelect[indexPath.row].strSport
-//        vc?.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-//        self.navigationController?.pushViewController (vc!, animated: true)
-//        print(sportSelect[indexPath.row].strSport, "select")
-//    }
-    
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //
-//        let vc:LeagueViewController = segue.destination as! LeagueViewController
-//        var myIndex = mycollectionsport.indexPathsForSelectedItems
-//
-//        vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-//        vc.sport = sportSelect[myIndex!].strSport
-//
-//      //  vc.sport = sportSelect[myIndex!.row]
-//
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
