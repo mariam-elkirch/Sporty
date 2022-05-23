@@ -21,11 +21,7 @@ func attachView(view: DetailLeagueProtocol?){
         var strLeagueNoSpace : String
         strLeagueNoSpace = convertSpcaes(parameters: strLeague)
         network.teamResult(sportTeamLeg: strLeagueNoSpace){[weak self] (result) in
-      //  print(sportName,"nameofteampresenter")
-        print("team presenter")
-         print(result?.teams?[0].strTeamBadge ?? "noodata", "teamssspresenterr")
             self?.resultT = result?.teams
-      print(result?.teams?.count , "count Teams")
         DispatchQueue.main.async {
             self?.view?.stopAnimatingev()
             self?.view?.renderDetailCollectionViewev()

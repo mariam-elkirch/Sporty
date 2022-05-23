@@ -45,5 +45,9 @@ import Foundation
         
     }
     
-    
+    func fetchData(){
+           dataModel = LocalDataModel()
+           dataModel?.fetchLeagues()
+           
+       }
 }

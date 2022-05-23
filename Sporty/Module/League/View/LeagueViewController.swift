@@ -20,7 +20,6 @@ import Kingfisher
          var appdelegate:AppDelegate?
         let indicator = UIActivityIndicatorView(style: .large)
            var presenter : LeaguePresenter?
-           // Modle for View
     @IBOutlet weak var table: UITableView!
     var resultView: [String]?
         override func viewDidLoad() {
@@ -32,8 +31,7 @@ import Kingfisher
             presenter = LeaguePresenter(NWService: NetworkServic())
             presenter?.attachView(view: self)
             presenter?.getItems(sportName: sport ?? "Soccer")
-           // self.title = "Leagues"
-          //  presenter.getYoutube()
+
 
                 self.table.delegate=self
             self.table.dataSource=self
@@ -44,7 +42,6 @@ import Kingfisher
         return 100
         }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //print(resultView.count ?? 5)
             return  legueSelect.count
         
     }
@@ -76,7 +73,7 @@ import Kingfisher
                     cell.myBtn.addTarget(self, action: #selector(openYoutube(sender: )), for: .touchUpInside)
                     urlSelected = legueSelect[indexPath.row].strYoutube
                     }
-        //           urlSelected =  passLink(link: legueSelect[indexPath.row].strYoutube )
+
                     return cell
                 }
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -84,12 +81,8 @@ import Kingfisher
             if let cell = sender as? UITableViewCell,
                 
                let indexPath = table.indexPath(for: cell) {
-//myCollectionViewTeams
                 let vc = segue.destination as! DetailsCollectionViewController //Cast with your DestinationController
                 //Now simply set the title property of vc
-               // vc.strSportName = legueSelect[indexPath.row].strSport
-               // vc.strCountery = legueSelect[indexPath.row].strCountry
-               
                 let favid = legueSelect[indexPath.row].idLeague
                 let favname = legueSelect[indexPath.row].strLeague
                 let favimg = legueSelect[indexPath.row].strBadge
@@ -98,22 +91,16 @@ import Kingfisher
                 vc.l = myfav
                 vc.leagueNameForView = legueSelect[indexPath.row].strLeague
                 vc.leagueEventId = legueSelect[indexPath.row].idLeague
-             //   vc.strSportLe =  legueSelect[indexPath.row].strLeague
-              //  vc.
-                          //     vc.sport = legueSelect[indexPath.row].strLeague
-
+            
             }
        }
-//    func passLink( link : String) -> String {
-//        return link
-//    }
+
     @objc
     func openYoutube(sender : UIButton ){
         if let url = URL(string : "https://\(urlSelected ?? "https://www.google.com")"){
             print(urlSelected!)
             UIApplication.shared.open(url , options : [:]){
                 (done) in
-//                print("Opend sucsesfully")
                 if done {
                            print("opened")
                        } else {
@@ -135,8 +122,7 @@ import Kingfisher
         func renderTableView(){//Thread 1: Fatal error: Unexpectedly found nil while implicitly unwrapping an
             resultView = presenter?.result?.map({ (item) -> String in
                
-             //   presenter.getTeams(teamName: "BTCC")
-              //  presenter.getYoutube()
+     
                 print(item.idLeague , "presenter done")
                 self.legueSelect.append(item)
                 return item.idLeague ?? ""
@@ -145,7 +131,7 @@ import Kingfisher
         }
         
         
-        //DetailsCollectionViewController
+        
         
     }
 
