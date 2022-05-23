@@ -92,7 +92,7 @@ class NetworkServic : NetworkServiceProtocol {
                let countries = try JSONDecoder().decode(TeamModel.self, from: data)
                   // self.callBack?(countries, true,"")
              complitionHandler(countries)
-                   print(countries.teams?[2].strTeamBadge ,"imagelink")
+                  // print(countries.teams?[2].strTeamBadge ,"imagelink")
                    print("teamservice")
                } catch {
                    print(error)

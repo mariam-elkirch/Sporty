@@ -69,7 +69,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
           print("after sourceviewmmmmmmmm1mmmmmmmmmmm")
         presenter.getItems(idfromViewLeg: leagueEventId!)
           print(leagueEventId,"pget itemsrrrrrrrviewmmmmmmmmmmmmmmmmmmm")
-        
+     
         presenterTeam?.getItemsTeams(strLeague: leagueNameForView ?? "B" )
         
         
@@ -92,6 +92,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         print("rendermmmmmmmmmmmmm")
           //   presenter.getItems(idfromViewLeg: "4416")
         self.resultView = presenter.resultev ?? []
+      
         if( resultView.count > 0){
       
             var count = resultView.count ?? 0
@@ -118,7 +119,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
           resultViewTeam = presenterTeam?.resultT.map({(item) -> [String] in
                    print("hag")
                   // print(item.strSport)
-            print( item[1].strTeamBadge , "hagerrrrrrrrrrr")
+           // print( item[1].strTeamBadge , "hagerrrrrrrrrrr")
 
             self.teamSelect.append(contentsOf: item)
            // presenterTeam?.getItemsTeams(strLeague: leagueNameF1111111orView ?? "B")
