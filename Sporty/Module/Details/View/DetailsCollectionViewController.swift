@@ -69,6 +69,8 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
             if(isFav == true){
              LeagueFavBtn.setImage(UIImage(systemName:"heart.fill"), for: .normal)
             }
+            
+            
               
             }
  
