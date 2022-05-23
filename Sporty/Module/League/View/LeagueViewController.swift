@@ -32,7 +32,7 @@ import Kingfisher
             presenter = LeaguePresenter(NWService: NetworkServic())
             presenter?.attachView(view: self)
             presenter?.getItems(sportName: sport ?? "Soccer")
-            self.title = "Leagues"
+           // self.title = "Leagues"
           //  presenter.getYoutube()
 
                 self.table.delegate=self
@@ -52,34 +52,33 @@ import Kingfisher
               return 1
           }
     
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyCustomCellTableViewCell
-            cell.myLabel.adjustsFontSizeToFitWidth = true
-            //cell.myLabel.minimumScaleFactor = 0.4
-            cell.myLabel.text = legueSelect[indexPath.row].strLeague
-            
-    let url=URL(string:self.legueSelect[indexPath.row].strBadge ??
-            "https://www.thesportsdb.com//images//media//league//badge//6my1u31578828133.png" )
-            let res=ImageResource(downloadURL:url!)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                    
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyCustomCellTableViewCell
+                    cell.myLabel.adjustsFontSizeToFitWidth = true
+                    cell.myLabel.minimumScaleFactor = 0.5
+                    cell.myLabel.text = legueSelect[indexPath.row].strLeague
+                    print(legueSelect[indexPath.row].strLeague , "haaaaggggg")
+            let url=URL(string:self.legueSelect[indexPath.row].strBadge ??
+                    "https://www.thesportsdb.com//images//media//league//badge//6my1u31578828133.png" )
+                    let res=ImageResource(downloadURL:url!)
 
-    cell.imageView?.kf.setImage(with: res, placeholder: UIImage(named: "nemo.jpg"))
-            
-          cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.size.width)!/2
-          cell.imageView?.layer.masksToBounds = true
-            cell.imageView?.layer.borderWidth = 2
-            if (legueSelect[indexPath.row].strYoutube ==  ""){
-                cell.myBtn.isHidden = true
-            }
-            else {
-            cell.myBtn.tag = indexPath.row
-            cell.myBtn.addTarget(self, action: #selector(openYoutube(sender: )), for: .touchUpInside)
-            urlSelected = legueSelect[indexPath.row].strYoutube
-            }
-//           urlSelected =  passLink(link: legueSelect[indexPath.row].strYoutube )
-            return cell
-        }
-
+            cell.imageView?.kf.setImage(with: res, placeholder: UIImage(named: "nemo.jpg"))
+                    
+                  cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.size.width)!/2
+                  cell.imageView?.layer.masksToBounds = true
+                    cell.imageView?.layer.borderWidth = 2
+                    if (legueSelect[indexPath.row].strYoutube ==  ""){
+                        cell.myBtn.isHidden = true
+                    }
+                    else {
+                    cell.myBtn.tag = indexPath.row
+                    cell.myBtn.addTarget(self, action: #selector(openYoutube(sender: )), for: .touchUpInside)
+                    urlSelected = legueSelect[indexPath.row].strYoutube
+                    }
+        //           urlSelected =  passLink(link: legueSelect[indexPath.row].strYoutube )
+                    return cell
+                }
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
             if let cell = sender as? UITableViewCell,

@@ -9,7 +9,8 @@
 import Foundation
 class TeamPresenter {
    var resultT : [Team]!  // model
-   
+   let network = NetworkServic()
+
    weak var view : DetailLeagueProtocol?  // DI
     init(NWService : NetworkServiceProtocol){
        }
@@ -18,12 +19,13 @@ func attachView(view: DetailLeagueProtocol?){
 }
     func getItemsTeams(strLeague : String){
         var strLeagueNoSpace : String
-        strLeagueNoSpace = setUpParam(parameters: strLeague)
-        NetworkServic.teamResult(sportTeamLeg: strLeagueNoSpace){[weak self] (result) in
+        strLeagueNoSpace = convertSpcaes(parameters: strLeague)
+        network.teamResult(sportTeamLeg: strLeagueNoSpace){[weak self] (result) in
       //  print(sportName,"nameofteampresenter")
         print("team presenter")
          print(result?.teams?[0].strTeamBadge ?? "noodata", "teamssspresenterr")
             self?.resultT = result?.teams
+      print(result?.teams?.count , "count Teams")
         DispatchQueue.main.async {
             self?.view?.stopAnimatingev()
             self?.view?.renderDetailCollectionViewev()
@@ -32,7 +34,7 @@ func attachView(view: DetailLeagueProtocol?){
     }
     }
     
-    func setUpParam(parameters : String) -> String{
+    func convertSpcaes(parameters : String) -> String{
            let suffix : Set<Character> = ["\r"]
            var newParameters = parameters
            newParameters.removeAll(where: {suffix.contains($0)})

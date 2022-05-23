@@ -74,9 +74,6 @@ print("fetchhhhMethod")
                 for object in result! {
                        print("deletedsucsseflyyyyy")
                     viewContext!.delete(object)
-                   
-                                                
-                                  
                 }
                                     }catch let error{
                    print(error.localizedDescription)

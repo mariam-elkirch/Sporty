@@ -9,6 +9,7 @@ import Foundation
     class LeaguePresenter {
        var result : [League]? // model
         var result2 : [Team]? // model
+        let network = NetworkServic()
 
       internal  var re = [LeagueTwo]()
         
@@ -20,16 +21,15 @@ import Foundation
         self.view = view
     }
         func getItems(sportName : String){
-            NetworkServic.legsResult(strSport: sportName){[weak self] (result) in
+            network.legsResult(strSport: sportName){[weak self] (result) in
             print(sportName ,"nameofsportpresenter")
             print(" League presenter")
-            
             print(result?.countries[2].idLeague ?? "")
             self?.result = result?.countries
-            DispatchQueue.main.async {
+                print(result?.countries.count , "count of Leagues")
+            DispatchQueue.main.async{
                 self?.view?.stopAnimating()
                 self?.view?.renderTableView()
-
             }
         }
         }         

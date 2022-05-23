@@ -61,4 +61,35 @@ class NetworkServiceTest: XCTestCase {
          waitForExpectations(timeout: 15, handler: nil)
      
      }
+    func testLeaguesResult(){
+    let myExpection = expectation(description:"wait of api");
+        networkManager.legsResult(strSport: "Motorsport"){
+        (league) in
+        guard let myLeagues = league else{
+          XCTFail()
+           return
+      }
+            XCTAssertEqual(myLeagues.countries.count, 10)
+                      myExpection.fulfill()
+                      
+                  }
+                  waitForExpectations(timeout: 15, handler: nil)
+              
+              }
+    func testTeamsResult(){
+            let myExpection = expectation(description:"wait of api");
+       networkManager.teamResult(sportTeamLeg: "BTCC"){
+               (teams) in
+                guard let myTeams = teams else{
+                    XCTFail()
+                    return
+                }
+        XCTAssertEqual(myTeams.teams?.count, 14)
+                myExpection.fulfill()
+                
+            }
+            waitForExpectations(timeout: 15, handler: nil)
+        
+        }
+   
 }
