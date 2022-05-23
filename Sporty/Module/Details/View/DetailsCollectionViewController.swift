@@ -252,14 +252,14 @@ extension DetailsCollectionViewController :  UICollectionViewDelegateFlowLayout 
            var returnedSize = CGSize()
            
            if (collectionView == latesteventcollection){
-               returnedSize =  CGSize(width: screenWidth, height: screenHeight)
+            returnedSize =  CGSize(width:collectionView.frame.size.width  , height: collectionView.frame.size.height)
            }
            if (collectionView == mycollection){
                returnedSize =  CGSize(width: collectionView.frame.width / 3 , height: collectionView.frame.width / 3)
            }
            if (collectionView == upcommingcollection){
                
-               returnedSize = CGSize(width: screenWidth  , height: screenHeight )
+               returnedSize = CGSize(width: collectionView.frame.size.width  , height: collectionView.frame.size.height )
            }
            // return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.width)
            return returnedSize
