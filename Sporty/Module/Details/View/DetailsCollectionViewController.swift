@@ -32,27 +32,17 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
     var upcommingEventResult: [Event] = []
        var presenterTeam : TeamPresenter?
  var resultViewTeam :[String]? = []
-    var isFav : Bool?
+    var isFav : Bool = false
     @IBOutlet weak var upcommingcollection: UICollectionView!
     @IBOutlet weak var latesteventcollection: UICollectionView!
     
     @IBOutlet weak var mycollection: UICollectionView!
     
    
-  //  var button : UIButton? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  LeagueFavBtn?.tag = indexPath.row
         print(l?.idLeague,"favourite")
                LeagueFavBtn.addTarget(self, action: #selector(addToFavorite(sender:)), for: .touchUpInside)
-//         button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-//        view.addSubview(button!)
-//
-       //button?.addTarget(self, action: #selector(addToFavorite(sender:)), for: .touchUpInside)
-        
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        self.mycollection.collectionViewLayout = layout
        
     
         presenter = DetailsLeaguePresenter(NWService: NetworkServic())
@@ -73,8 +63,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         presenterTeam?.getItemsTeams(strLeague: leagueNameForView ?? "B" )
         
         
-      // latesteventcollection.collectionViewLayout = UICollectionViewFlowLayout()
-        
+ 
         
     }
     
@@ -90,7 +79,6 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        
        func renderDetailCollectionViewev() {
         print("rendermmmmmmmmmmmmm")
-          //   presenter.getItems(idfromViewLeg: "4416")
         self.resultView = presenter.resultev ?? []
       
         if( resultView.count > 0){
@@ -101,7 +89,6 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                        if(compareDate(eventDate:resultView[i].dateEvent ?? "") == 3 ){
                            print(resultView[i].dateEvent , "mmmmmmmmmmminside id")
                            upcommingEventResult.append((resultView[i]))
-                   //self.tableView.reloadData()
                          self.upcommingcollection.reloadData()
                        }
                        }
@@ -118,22 +105,16 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
         
           resultViewTeam = presenterTeam?.resultT.map({(item) -> [String] in
                    print("hag")
-                  // print(item.strSport)
-           // print( item[1].strTeamBadge , "hagerrrrrrrrrrr")
+
 
             self.teamSelect.append(contentsOf: item)
-           // presenterTeam?.getItemsTeams(strLeague: leagueNameF1111111orView ?? "B")
             self.mycollection.reloadData()
 
-                 //  print(sportSelect[1].strSport ?? "")
             return resultViewTeam ?? []
         })
         self.upcommingcollection.reloadData()
                self.mycollection.reloadData()
         self.latesteventcollection.reloadData()
-      //  self.latestResultResponse = presenter.result ?? []
-       // myCollectionView.reloadData()
-      //  latestCollectionView.reloadData()
        }
        
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -147,11 +128,14 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
             return upcommingEventResult.count}
        }
     @objc func addToFavorite(sender :UIButton){
-        
         print("btnFav")
         if(l != nil){
-        presenter.insertData(leg: l!)
-        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+               sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            if(isFav == false){
+     presenter.insertData(leg: l!)
+                isFav = true
+            }
+            
     }
     }
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -181,7 +165,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                 cellup.timeUpcomeLabel.text = upcommingEventResult[indexPath.row].strTime
                return cellup
            }
-           else {//collectionView == self.latesteventcollection{
+           else {
                let celllat = latesteventcollection.dequeueReusableCell(withReuseIdentifier: "cell3", for: indexPath) as! LatestEventsCollectionViewCell
           
             celllat.latestlabel.text =  resultView[indexPath.row].strHomeTeam
@@ -192,7 +176,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                        let res=ImageResource(downloadURL: url!)
            celllat.imgname.kf.setImage(with: res, placeholder: UIImage(named: "flower1.jpg"))
             }
-            //celllat.imgname.image = UIImage(named: "flower1.jpg")
+            
             celllat.dateLabel.text = resultView[indexPath.row].dateEvent
             celllat.teamname.text = resultView[indexPath.row].strAwayTeam
             celllat.scorefirst.text = resultView[indexPath.row].intHomeScore
@@ -230,7 +214,6 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                    let indexPath = mycollection.indexPath(for: cell) {
                     let vc = segue.destination as! TeamDetailsViewController
                     
-                    //Now simply set the title property of
 vc.strTeamImage = teamSelect[indexPath.row].strTeamBadge
                     vc.capacity = teamSelect[indexPath.row].intStadiumCapacity
                     vc.desc = teamSelect[indexPath.row].strDescriptionEN
@@ -261,7 +244,7 @@ extension DetailsCollectionViewController :  UICollectionViewDelegateFlowLayout 
                
                returnedSize = CGSize(width: collectionView.frame.size.width  , height: collectionView.frame.size.height )
            }
-           // return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.width)
+           
            return returnedSize
            
        }

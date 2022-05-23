@@ -25,14 +25,13 @@ class NetworkServic : NetworkServiceProtocol {
                 return}
             do {
             let sports = try JSONDecoder().decode(SportsModel.self, from: data)
-               // self.callBack?(countries, true,"")
                  complitionHandler(sports)
                 print(sports.sports?[2].strSport ?? "batot"  , "55")
                 print("hee")
             } catch {
                 print(error)
                 complitionHandler(nil)
-               // self.callBack?(nil, false, error.localizedDescription)
+               
             }}
     }
     
@@ -90,9 +89,8 @@ class NetworkServic : NetworkServiceProtocol {
                    return}
                do {
                let countries = try JSONDecoder().decode(TeamModel.self, from: data)
-                  // self.callBack?(countries, true,"")
              complitionHandler(countries)
-                  // print(countries.teams?[2].strTeamBadge ,"imagelink")
+            
                    print("teamservice")
                } catch {
                    print(error)

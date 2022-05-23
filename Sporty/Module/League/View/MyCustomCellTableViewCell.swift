@@ -16,10 +16,7 @@ class MyCustomCellTableViewCell: UITableViewCell {
     @IBOutlet weak var myBtn: UIButton!
     
     
-//    override func layoutSubviews(){
-//            myImage.layer.cornerRadius = myImage.bounds.height / 2
-//                myImage.clipsToBounds = true
-//    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
 //        myImage.layer.cornerRadius = myImage.bounds.height / 2
