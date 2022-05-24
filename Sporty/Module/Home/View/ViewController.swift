@@ -48,7 +48,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             layout.minimumInteritemSpacing = 0
                 layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
               //  let size = CGSize(width:(mycollectionsport!.bounds.width-165)/2, height: 220)
-            let size = CGSize(width : mycollectionsport.frame.width * 0.44999 , height: mycollectionsport.frame.height * 0.249)
+            let size = CGSize(width : mycollectionsport.frame.width / 2 , height: mycollectionsport.frame.height * 0.249)
           // CGSize(width: mycollectionsport.frame.size.width/3.5, height: mycollectionsport.frame.size.height/4)
                 layout.itemSize = size
           
