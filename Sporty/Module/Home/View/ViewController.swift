@@ -123,6 +123,8 @@ extension ViewController : HomeProtocol  {
         resultView = presenter.result.map({ (item) -> String in
            
            
+            
+            
              self.sportSelect.append(item)
           //  print(sportSelect[1].strSport ?? "")
             return item.strSport ?? ""
