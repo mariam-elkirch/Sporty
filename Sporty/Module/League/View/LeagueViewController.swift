@@ -97,21 +97,37 @@ import Kingfisher
 
     @objc
     func openYoutube(sender : UIButton ){
-        if let url = URL(string : "https://\(urlSelected ?? "https://www.google.com")"){
-            print(urlSelected!)
-            UIApplication.shared.open(url , options : [:]){
-                (done) in
-                if done {
-                           print("opened")
-                       } else {
-                           print("failed")
-                           // showInvalidUrlAlert()
-                       }
+        
+        if (Connectivity.isConnectedToInternet()) {
+              print("Yes internet is available.")
+            if let url = URL(string : "https://\(urlSelected ?? "https://www.google.com")"){
+                      print(urlSelected!)
+                      UIApplication.shared.open(url , options : [:]){
+                          (done) in
+                          if done {
+                                     print("opened")
+                                 } else {
+                                     print("failed")
+                                     // showInvalidUrlAlert()
+                                 }
+                }
             }
         }
-        print("button")
-    }
-    }
+              // do some tasks..
+              
+                        else {
+               print("No internet ")
+                 let actionsheet = UIAlertController(title: "Can not Open Youtube ", message: " Check Your Internet Connection ", preferredStyle: .actionSheet)
+                  
+                  
+                  actionsheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                  
+                self.present(actionsheet, animated: true, completion: nil)
+              }
+        
+            }
+        }
+    
 
     extension LeagueViewController : LeagueProtocol {
         func stopAnimating() {
@@ -129,10 +145,4 @@ import Kingfisher
             })
             self.table.reloadData()
         }
-        
-        
-        
-        
     }
-
-
