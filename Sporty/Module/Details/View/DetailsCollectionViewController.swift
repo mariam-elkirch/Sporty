@@ -32,7 +32,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
     var upcommingEventResult: [Event] = []
        var presenterTeam : TeamPresenter?
  var resultViewTeam :[String]? = []
-    var isFav : Bool = false
+    var isFav : Bool?
     @IBOutlet weak var upcommingcollection: UICollectionView!
     @IBOutlet weak var latesteventcollection: UICollectionView!
     
@@ -41,7 +41,9 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(l?.idLeague,"favourite")
+        
+        
+       // print(l?.idLeague,"favourite")
                LeagueFavBtn.addTarget(self, action: #selector(addToFavorite(sender:)), for: .touchUpInside)
        
     
@@ -62,7 +64,15 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
      
         presenterTeam?.getItemsTeams(strLeague: leagueNameForView ?? "B" )
         
-        
+        isFav = presenter.fetchIsFavData(leg: l! )
+        if(l != nil){
+            if(isFav == true){
+             LeagueFavBtn.setImage(UIImage(systemName:"heart.fill"), for: .normal)
+            }
+            
+            
+              
+            }
  
         
     }
@@ -100,8 +110,7 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
                                  
                 
         }
-    
-      
+     
         
           resultViewTeam = presenterTeam?.resultT.map({(item) -> [String] in
                    print("hag")
@@ -129,14 +138,22 @@ class DetailsCollectionViewController: UIViewController,UICollectionViewDataSour
        }
     @objc func addToFavorite(sender :UIButton){
         print("btnFav")
+       
+        
+        isFav = presenter.fetchIsFavData(leg: l!)
         if(l != nil){
-               sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             if(isFav == false){
-     presenter.insertData(leg: l!)
-                isFav = true
+               sender.setImage(UIImage(systemName:"heart.fill"), for: .normal)
+                presenter.insertData(leg: l!)
+
+            }
+                else if(isFav == true){
+                     sender.setImage(UIImage(systemName:"heart.fill"), for: .normal)
+                }
+                //isFav = true
             }
             
-    }
+    
     }
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
