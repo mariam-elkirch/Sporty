@@ -45,9 +45,10 @@ import Foundation
         
     }
     
-    func fetchData(){
+    func fetchIsFavData(leg : FavourieLeague) -> Bool{
+        var isFav : Bool?
            dataModel = LocalDataModel()
-           dataModel?.fetchLeagues()
-           
+       isFav =  dataModel?.isFavorite(league: leg)
+        return isFav!
        }
 }

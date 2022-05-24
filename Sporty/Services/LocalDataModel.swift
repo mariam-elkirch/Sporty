@@ -82,7 +82,23 @@ print("fetchhhhMethod")
      appdelegate!.saveContext()
     }
     
-    
+    func isFavorite(league : FavourieLeague) -> Bool {
+        var isFavorite = false
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LeagueE")
+        fetchRequest.fetchLimit =  1
+        fetchRequest.predicate = NSPredicate(format: "id == %@" ,league.idLeague)
+        
+        do {
+            let count = try viewContext?.count(for: fetchRequest)
+            if count! > 0 {
+                isFavorite =  true
+            }
+        }catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return isFavorite
+    }
     
     
     
